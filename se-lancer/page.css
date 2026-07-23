@@ -1,0 +1,104 @@
+/* =========================================================================
+   AZELER — Styles PROPRES à la page « Se lancer » (Terminal 1)
+   N'affecte que cette page. Réutilise les jetons du design-system.
+   ========================================================================= */
+
+/* Intro de section */
+.sl-intro { max-width: 680px; margin: 0 0 8px; }
+.sl-intro .lead { margin-top: 8px; }
+
+/* Les cartes de rubrique s'étirent pour aligner leur bas */
+.sl-cards .card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Liste de conseils : puces « check » maison, sans margin par défaut */
+.sl-tips {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  flex: 1 1 auto;           /* pousse les liens en bas de carte */
+}
+.sl-tips li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+  color: var(--azeler-ink);
+  font-size: .98rem;
+  line-height: 1.45;
+}
+.sl-tips li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--azeler-blue);
+  font-weight: 800;
+}
+
+/* Bloc « où aller » : liens vers les dispositifs officiels */
+.sl-links {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #eef0f6;
+}
+.sl-links__title {
+  display: block;
+  font-weight: 800;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--azeler-gray);
+  margin-bottom: 8px;
+}
+.sl-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--azeler-blue-soft);
+  color: var(--azeler-blue-dark);
+  font-weight: 700;
+  font-size: .88rem;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin: 0 6px 6px 0;
+  transition: background .2s ease, transform .12s ease;
+}
+.sl-link:hover {
+  background: var(--azeler-blue);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.sl-link::after { content: "↗"; font-size: .85em; opacity: .7; }
+
+/* Bandeau d'urgence / numéros utiles */
+.sl-urgence {
+  margin-top: 40px;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid #eef0f6;
+  box-shadow: var(--shadow);
+  padding: 26px 28px;
+}
+.sl-urgence h3 { margin-top: 0; }
+.sl-urgence__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+.sl-urgence__item { line-height: 1.35; }
+.sl-urgence__num {
+  font-family: var(--font-logo);
+  font-size: 1.7rem;
+  color: var(--azeler-red);
+  line-height: 1;
+}
+.sl-urgence__label { color: var(--azeler-gray); font-size: .92rem; }
+
+@media (max-width: 680px) {
+  .sl-urgence__grid { grid-template-columns: 1fr; }
+}

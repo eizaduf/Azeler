@@ -1,0 +1,160 @@
+/* ============================================================
+   Kit d'hygiène — styles propres à la page (Terminal 5)
+   Réutilise les variables et classes du design-system.
+   ============================================================ */
+
+/* Disposition : formulaire large + encart RGPD à côté */
+.form-layout { align-items: start; }
+
+/* Sur grand écran, le formulaire prend plus de place que l'encart */
+@media (min-width: 861px) {
+  .form-layout { grid-template-columns: 1.6fr 1fr; }
+  .rgpd-card { position: sticky; top: 90px; }
+}
+
+.form-card__title { margin: 12px 0 6px; }
+
+/* ---------- Champs ---------- */
+.kit-form { margin-top: 8px; }
+
+.field { margin-bottom: 22px; }
+
+.field > label,
+.field legend {
+  display: block;
+  font-weight: 800;
+  color: var(--azeler-ink);
+  margin-bottom: 8px;
+}
+
+.sub-label {
+  display: block;
+  font-weight: 700;
+  font-size: .92rem;
+  color: var(--azeler-gray);
+  margin: 10px 0 4px;
+}
+
+.field__hint {
+  font-size: .9rem;
+  color: var(--azeler-gray);
+  margin: 0 0 10px;
+}
+
+.req-star { color: var(--azeler-accent); font-weight: 800; }
+
+/* fieldset : on neutralise le rendu par défaut du navigateur */
+.field--group {
+  border: 1px solid #e6e8f2;
+  border-radius: var(--radius);
+  padding: 18px 18px 14px;
+  background: #fff;
+}
+
+/* ---------- Inputs / textarea ---------- */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--azeler-ink);
+  background: #fff;
+  border: 1.5px solid #d7dae8;
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+input::placeholder,
+textarea::placeholder { color: #a3a8bd; }
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--azeler-blue);
+  box-shadow: 0 0 0 3px rgba(81, 112, 255, .18);
+}
+
+textarea { resize: vertical; min-height: 88px; }
+
+/* Champ en erreur */
+.field.has-error input,
+.field.has-error textarea,
+.field.has-error .field--group,
+.field--group.has-error { border-color: var(--azeler-accent); }
+
+.field__error {
+  color: var(--azeler-accent);
+  font-weight: 700;
+  font-size: .88rem;
+  margin: 6px 0 0;
+  min-height: 0;
+}
+.field__error:empty { display: none; }
+
+/* ---------- Cases à cocher / radios ---------- */
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--azeler-ink);
+  cursor: pointer;
+  padding: 10px 12px;
+  border: 1.5px solid #e6e8f2;
+  border-radius: 12px;
+  transition: border-color .15s ease, background .15s ease;
+}
+.choice:hover { border-color: var(--azeler-blue); background: var(--azeler-blue-soft); }
+
+.choice input { margin-top: 2px; width: 18px; height: 18px; accent-color: var(--azeler-blue); flex: 0 0 auto; }
+
+.choice-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 6px; }
+.choice-row .choice { flex: 1 1 160px; }
+
+.check-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+
+.choice--consent {
+  align-items: flex-start;
+  font-weight: 600;
+  background: var(--azeler-blue-soft);
+  border-color: #d7dae8;
+}
+
+.livraison-bloc { margin-top: 6px; }
+
+/* ---------- Bouton pleine largeur ---------- */
+.btn--block { display: block; width: 100%; margin-top: 4px; }
+.form-note { text-align: center; margin-top: 12px; }
+
+/* ---------- Message de confirmation ---------- */
+.form-success {
+  text-align: center;
+  padding: 20px 10px;
+  animation: pop .25s ease;
+}
+.form-success__icon { font-size: 3rem; line-height: 1; }
+.form-success h3 { margin: 10px 0 8px; }
+.form-success p { color: var(--azeler-gray); margin: 0 auto 18px; max-width: 34ch; }
+@keyframes pop { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* ---------- Encart RGPD ---------- */
+.rgpd-card { border: 1px solid #dfe3f7; }
+.rgpd-list { list-style: none; padding: 0; margin: 0 0 14px; }
+.rgpd-list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+  color: var(--azeler-gray);
+  line-height: 1.5;
+}
+.rgpd-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--azeler-blue);
+  font-weight: 800;
+}
+.rgpd-list strong { color: var(--azeler-ink); }
+.rgpd-note { font-size: .9rem; margin: 0; }

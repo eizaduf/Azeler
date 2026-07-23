@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épiceries sociales — AZELER</title>
+  <meta name="description" content="La carte des épiceries sociales et solidaires près de chez toi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <!-- Leaflet (carte OpenStreetMap, CDN gratuit sans clé) — page épiceries uniquement -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="page.css">
+</head>
+<body data-base="../" data-page="epiceries">
+  <header id="site-header"></header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Accueil</a> › Épiceries</div>
+      <h1>Épiceries sociales & solidaires 🛒</h1>
+      <p>Trouve une épicerie sociale près de chez toi pour faire tes courses à petit prix.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- ================= ZONE DE TRAVAIL DU TERMINAL 4 ================= -->
+      <p class="lead">Cherche une épicerie sociale par ville ou code postal, repère-la sur la carte,
+        et retrouve toutes les infos pratiques juste en dessous.</p>
+
+      <div class="epi-search">
+        <input id="epi-search" class="epi-search__input" type="search"
+               placeholder="Ta ville ou ton code postal (ex : Pantin, 75018)…"
+               aria-label="Rechercher une épicerie par ville ou code postal" autocomplete="off">
+        <span id="epi-count" class="epi-search__count" role="status" aria-live="polite"></span>
+      </div>
+
+      <!-- Message de secours si la carte ne charge pas -->
+      <div id="epi-fallback" class="epi-fallback" style="display:none">
+        La carte n'a pas pu se charger (connexion ou blocage réseau).
+        Pas de souci : la liste des épiceries reste disponible juste en dessous. 👇
+      </div>
+
+      <!-- Carte interactive Leaflet + OpenStreetMap -->
+      <div id="epi-map" class="epi-map" role="region" aria-label="Carte des épiceries sociales"></div>
+
+      <!-- Liste des épiceries (fallback naturel si la carte est absente) -->
+      <div id="epi-list" class="epi-list"></div>
+      <!-- ================================================================= -->
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/layout.js"></script>
+  <!-- Leaflet (CDN, page épiceries uniquement) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKGg=" crossorigin=""></script>
+  <script src="../data/epiceries.js"></script>
+  <script src="page.js"></script>
+</body>
+</html>

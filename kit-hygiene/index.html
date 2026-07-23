@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demander un kit d'hygiène — AZELER</title>
+  <meta name="description" content="Un formulaire simple et confidentiel pour recevoir gratuitement un kit d'hygiène.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body data-base="../" data-page="kit-hygiene">
+  <header id="site-header"></header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Accueil</a> › Kit hygiène</div>
+      <h1>Demander un kit d'hygiène 🧼</h1>
+      <p>Gratuit et confidentiel. Remplis le formulaire, on s'occupe du reste.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- ================= ZONE DE TRAVAIL DU TERMINAL 5 ================= -->
+      <div class="grid grid--2 form-layout">
+
+        <!-- ---------- Colonne principale : le formulaire ---------- -->
+        <div class="card form-card">
+          <span class="badge">100 % gratuit</span>
+          <h2 class="form-card__title">Ta demande de kit</h2>
+          <p class="card__text">Remplis les champs marqués d'une <span class="req-star">*</span>.
+            Le reste est facultatif. Ça prend deux minutes.</p>
+
+          <!-- Message de confirmation (affiché après un envoi réussi) -->
+          <div id="form-success" class="form-success" role="status" aria-live="polite" hidden>
+            <div class="form-success__icon">✅</div>
+            <h3>C'est envoyé, merci !</h3>
+            <p>On a bien reçu ta demande de kit d'hygiène. On revient vers toi très vite
+              par le moyen de contact que tu as choisi.</p>
+            <button type="button" class="btn btn--ghost" id="form-reset">Faire une autre demande</button>
+          </div>
+
+          <!-- novalidate : on gère la validation nous-mêmes en JS pour des messages clairs -->
+          <form id="kit-form" class="kit-form" novalidate>
+
+            <!-- Prénom -->
+            <div class="field">
+              <label for="prenom">Prénom <span class="req-star">*</span></label>
+              <input type="text" id="prenom" name="prenom" autocomplete="given-name"
+                     placeholder="Ton prénom (ou un surnom)" required>
+              <p class="field__error" data-error-for="prenom"></p>
+            </div>
+
+            <!-- Contact au choix : e-mail OU téléphone -->
+            <fieldset class="field field--group">
+              <legend>Comment te recontacter ? <span class="req-star">*</span></legend>
+              <p class="field__hint">Un seul des deux suffit — choisis le plus simple pour toi.</p>
+
+              <label for="email" class="sub-label">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email"
+                     placeholder="prenom@exemple.fr">
+
+              <label for="telephone" class="sub-label">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" autocomplete="tel"
+                     placeholder="06 12 34 56 78">
+
+              <p class="field__error" data-error-for="contact"></p>
+            </fieldset>
+
+            <!-- Livraison au choix : adresse OU point de retrait -->
+            <fieldset class="field field--group">
+              <legend>Où recevoir ton kit ? <span class="req-star">*</span></legend>
+
+              <div class="choice-row">
+                <label class="choice">
+                  <input type="radio" name="livraison" value="adresse" checked>
+                  <span>À mon adresse</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="livraison" value="retrait">
+                  <span>En point de retrait</span>
+                </label>
+              </div>
+
+              <!-- Bloc adresse -->
+              <div class="livraison-bloc" data-livraison="adresse">
+                <label for="adresse" class="sub-label">Adresse d'envoi</label>
+                <textarea id="adresse" name="adresse" rows="3"
+                          placeholder="N°, rue, code postal, ville"></textarea>
+              </div>
+
+              <!-- Bloc point de retrait -->
+              <div class="livraison-bloc" data-livraison="retrait" hidden>
+                <label for="retrait" class="sub-label">Ville ou quartier de retrait</label>
+                <input type="text" id="retrait" name="retrait"
+                       placeholder="Ex. : Pantin, autour de la mairie">
+                <p class="field__hint">On te proposera le point de retrait le plus proche.</p>
+              </div>
+
+              <p class="field__error" data-error-for="livraison"></p>
+            </fieldset>
+
+            <!-- Contenu du kit -->
+            <fieldset class="field field--group">
+              <legend>Que veux-tu dans ton kit ?</legend>
+              <p class="field__hint">Coche ce dont tu as besoin (au moins une case).</p>
+
+              <div class="check-grid">
+                <label class="choice"><input type="checkbox" name="contenu" value="Hygiène corporelle"><span>🧴 Hygiène corporelle</span></label>
+                <label class="choice"><input type="checkbox" name="contenu" value="Hygiène dentaire"><span>🪥 Hygiène dentaire</span></label>
+                <label class="choice"><input type="checkbox" name="contenu" value="Protections périodiques"><span>🩸 Protections périodiques</span></label>
+                <label class="choice"><input type="checkbox" name="contenu" value="Rasage"><span>🪒 Rasage</span></label>
+                <label class="choice"><input type="checkbox" name="contenu" value="Soin des cheveux"><span>💇 Soin des cheveux</span></label>
+                <label class="choice"><input type="checkbox" name="contenu" value="Mouchoirs et lingettes"><span>🧻 Mouchoirs / lingettes</span></label>
+              </div>
+              <p class="field__error" data-error-for="contenu"></p>
+            </fieldset>
+
+            <!-- Message facultatif -->
+            <div class="field">
+              <label for="message">Un message (facultatif)</label>
+              <textarea id="message" name="message" rows="3"
+                        placeholder="Un besoin particulier ? Une taille, une allergie… dis-nous tout."></textarea>
+            </div>
+
+            <!-- Consentement RGPD obligatoire -->
+            <div class="field">
+              <label class="choice choice--consent">
+                <input type="checkbox" id="consentement" name="consentement" required>
+                <span>J'accepte qu'AZELER utilise ces informations dans le seul but de préparer et
+                  d'envoyer mon kit d'hygiène. <span class="req-star">*</span></span>
+              </label>
+              <p class="field__error" data-error-for="consentement"></p>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block" id="form-submit">
+              Envoyer ma demande
+            </button>
+            <p class="field__hint form-note">Aucune donnée n'est publiée : cette démo simule l'envoi.</p>
+          </form>
+        </div>
+
+        <!-- ---------- Colonne secondaire : encart RGPD ---------- -->
+        <aside class="card rgpd-card section--soft" aria-label="Protection de tes données">
+          <div class="card__icon">🔒</div>
+          <h2 class="card__title">Tes données, en confiance</h2>
+          <ul class="rgpd-list">
+            <li><strong>Le minimum, rien de plus.</strong> On te demande seulement ce qu'il faut
+              pour t'envoyer ton kit.</li>
+            <li><strong>Confidentiel.</strong> Tes infos ne sont ni vendues, ni partagées avec des tiers.</li>
+            <li><strong>Un seul usage.</strong> Elles servent uniquement à préparer et livrer ta demande.</li>
+            <li><strong>Effaçables.</strong> Tu peux nous écrire pour consulter ou supprimer tes données
+              à tout moment.</li>
+          </ul>
+          <p class="card__text rgpd-note">Conformément au RGPD, tu gardes la main sur tes informations.</p>
+        </aside>
+
+      </div>
+      <!-- ================================================================= -->
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/layout.js"></script>
+  <script src="page.js"></script>
+</body>
+</html>

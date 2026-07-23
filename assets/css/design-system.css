@@ -1,0 +1,195 @@
+/* =========================================================================
+   AZELER — SYSTÈME DE DESIGN COMMUN (FICHIER GELÉ)
+   -------------------------------------------------------------------------
+   NE PAS MODIFIER CE FICHIER pendant le travail en parallèle.
+   Il contient la charte graphique et les composants partagés de tout le site.
+   Chaque page peut AJOUTER son propre CSS dans son dossier (ex: se-lancer/page.css),
+   mais ne touche jamais à celui-ci.
+   ========================================================================= */
+
+/* ---- 1. Jetons de design (couleurs, typo, espacements) ---- */
+:root {
+  --azeler-blue: #5170ff;        /* couleur principale de la charte */
+  --azeler-blue-dark: #3a54d6;   /* survol / contrastes */
+  --azeler-blue-soft: #eef1ff;   /* fonds très clairs */
+  --azeler-white: #ffffff;
+  --azeler-ink: #1c2340;         /* texte foncé lisible */
+  --azeler-gray: #5b6178;        /* texte secondaire */
+
+  /* Couleurs secondaires de la charte */
+  --azeler-red: #FF5A6E;         /* corail de marque (actions fortes) */
+  --azeler-red-dark: #E23E52;    /* survol du corail */
+  --azeler-slate: #464555;       /* ardoise (surfaces foncées, pied de page) */
+
+  /* L'accent du site pointe sur le rouge de la charte */
+  --azeler-accent: var(--azeler-red);
+  --azeler-accent-dark: var(--azeler-red-dark);
+
+  --radius: 18px;
+  --radius-lg: 28px;
+  --shadow: 0 10px 30px rgba(28, 35, 64, .10);
+  --shadow-strong: 0 16px 40px rgba(81, 112, 255, .25);
+  --maxw: 1120px;
+
+  --font-logo: 'Chewy', cursive;
+  --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ---- 2. Base ---- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--azeler-ink);
+  background: var(--azeler-white);
+  line-height: 1.6;
+  font-size: 17px;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--azeler-blue); }
+
+h1, h2, h3 { line-height: 1.15; color: var(--azeler-ink); }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 800; }
+h3 { font-size: 1.25rem; font-weight: 800; }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+.section { padding: 64px 0; }
+.section--soft { background: var(--azeler-blue-soft); }
+.text-center { text-align: center; }
+.lead { font-size: 1.2rem; color: var(--azeler-gray); }
+
+/* ---- 3. Logo textuel AZELER (police Chewy) ---- */
+.logo {
+  font-family: var(--font-logo);
+  font-size: 1.9rem;
+  color: var(--azeler-white);
+  text-decoration: none;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.logo--blue { color: var(--azeler-blue); }
+.tagline { font-family: var(--font-logo); color: var(--azeler-white); opacity: .95; }
+
+/* ---- 4. Boutons ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: 999px;
+  font-family: var(--font-body); font-weight: 800; font-size: 1rem;
+  text-decoration: none; cursor: pointer; border: 2px solid transparent;
+  transition: transform .12s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--primary { background: var(--azeler-blue); color: #fff; }
+.btn--primary:hover { background: var(--azeler-blue-dark); box-shadow: var(--shadow-strong); }
+.btn--accent { background: var(--azeler-accent); color: #fff; }
+.btn--accent:hover { background: var(--azeler-accent-dark); }
+.btn--ghost { background: transparent; color: var(--azeler-blue); border-color: var(--azeler-blue); }
+.btn--ghost:hover { background: var(--azeler-blue); color: #fff; }
+.btn--white { background: #fff; color: var(--azeler-blue); }
+.btn--red { background: var(--azeler-red); color: #fff; }
+.btn--red:hover { background: var(--azeler-red-dark); }
+
+/* ---- 5. Cartes ---- */
+.card {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 28px;
+  border: 1px solid #eef0f6;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-strong); }
+.card__icon { font-size: 2.2rem; margin-bottom: 10px; }
+.card__title { margin: 0 0 8px; }
+.card__text { color: var(--azeler-gray); margin: 0 0 16px; }
+
+.grid { display: grid; gap: 22px; }
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ---- 6. Bloc de statistiques ---- */
+.stat { text-align: center; }
+.stat__num { font-family: var(--font-logo); font-size: 2.6rem; color: var(--azeler-blue); line-height: 1; }
+.stat__label { color: var(--azeler-gray); font-size: .98rem; margin-top: 6px; }
+
+/* ---- 7. En-tête (injecté par layout.js) ---- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--azeler-blue); color: #fff;
+}
+.site-header .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.nav { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav a {
+  color: #fff; text-decoration: none; font-weight: 700; font-size: .95rem;
+  padding: 8px 12px; border-radius: 999px; transition: background .2s ease;
+}
+.nav a:hover, .nav a[aria-current="page"] { background: rgba(255,255,255,.18); }
+.nav__cta { background: var(--azeler-accent) !important; }
+.burger { display: none; background: none; border: 0; color: #fff; font-size: 1.6rem; cursor: pointer; }
+
+/* ---- 8. Pied de page (injecté par layout.js) ---- */
+.site-footer { background: var(--azeler-slate); color: #d6d8e2; padding: 44px 0 28px; }
+.site-footer a { color: #fff; }
+.site-footer .logo { font-size: 1.5rem; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 26px; padding-top: 18px; font-size: .88rem; opacity: .8; }
+
+/* ---- 9. En-tête de page interne ---- */
+.page-hero { background: var(--azeler-blue); color: #fff; padding: 54px 0; }
+.page-hero h1 { color: #fff; }
+.page-hero p { color: rgba(255,255,255,.9); max-width: 640px; }
+.breadcrumb { font-size: .9rem; opacity: .85; margin-bottom: 10px; }
+.breadcrumb a { color: #fff; }
+
+/* ---- 10. Utilitaires ---- */
+.badge { display: inline-block; background: var(--azeler-blue-soft); color: var(--azeler-blue);
+  font-weight: 800; font-size: .8rem; padding: 5px 12px; border-radius: 999px; }
+.mt-0{margin-top:0}.mb-0{margin-bottom:0}.mt-2{margin-top:16px}.mt-3{margin-top:24px}
+.wip { background: #fff7ed; border: 1px dashed var(--azeler-accent); color: #9a3412;
+  padding: 16px 20px; border-radius: var(--radius); }
+
+/* ---- 10b. Bandeau d'urgence + composants de FICHE (rubrique Fiches pratiques) ---- */
+.urgence {
+  background: var(--azeler-red); color: #fff;
+  border-radius: var(--radius); padding: 20px 24px;
+}
+.urgence h3 { color: #fff; margin: 0 0 12px; }
+.urgence__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.urgence__item { background: rgba(255,255,255,.15); border-radius: 12px; padding: 10px 12px; }
+.urgence__num { font-family: var(--font-logo); font-size: 1.5rem; line-height: 1; }
+.urgence__lbl { font-size: .82rem; opacity: .95; }
+
+.danger-box { background: #fff1f2; border: 1px solid var(--azeler-red);
+  color: #7a0a1a; border-radius: var(--radius); padding: 16px 20px; }
+.danger-box strong { color: var(--azeler-red); }
+
+.conseil-box { background: var(--azeler-blue-soft); border-left: 5px solid var(--azeler-blue);
+  border-radius: 12px; padding: 16px 20px; }
+
+.fiche-table { width: 100%; border-collapse: collapse; background: #fff;
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.fiche-table th { background: var(--azeler-ink); color: #fff; text-align: left; padding: 12px 14px; font-size: .95rem; }
+.fiche-table td { padding: 12px 14px; border-top: 1px solid #eef0f6; vertical-align: top; }
+.fiche-table tr:nth-child(even) td { background: #fafbff; }
+
+.fiche-sources { background: #f7f8fc; border-radius: var(--radius); padding: 16px 20px; font-size: .95rem; }
+.fiche-sources a { word-break: break-word; }
+.fiche-note { font-size: .85rem; color: var(--azeler-gray); }
+
+@media (max-width: 900px) { .urgence__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) { .fiche-table, .fiche-table tbody, .fiche-table tr, .fiche-table td { display: block; width: 100%; }
+  .fiche-table th { display: none; } .fiche-table td { border-top: 0; border-bottom: 1px solid #eef0f6; } }
+
+/* ---- 11. Responsive (mobile d'abord = essentiel pour ce public) ---- */
+@media (max-width: 900px) {
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  .nav--open { display: flex; position: absolute; top: 68px; left: 0; right: 0;
+    background: var(--azeler-blue); flex-direction: column; padding: 12px 20px; gap: 4px; }
+  .burger { display: block; }
+}

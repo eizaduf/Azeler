@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annuaire des associations — AZELER</title>
+  <meta name="description" content="Les associations de jeunes et le réseau ADEPAPE prêts à t'accompagner, filtrables par thème.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body data-base="../" data-page="associations">
+  <header id="site-header"></header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Accueil</a> › Associations</div>
+      <h1>Annuaire des associations 🤝</h1>
+      <p>Les associations existantes et le réseau ADEPAPE, prêtes à t'accompagner selon ton besoin.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- ================= ZONE DE TRAVAIL DU TERMINAL 3 ================= -->
+      <p>Filtre par thème pour trouver l'aide dont tu as besoin. Clique sur une carte pour visiter le site de l'association.</p>
+      <div id="assos-filters" class="assos-filters" role="group" aria-label="Filtrer les associations par thème"></div>
+      <div id="assos-grid" class="grid grid--3"></div>
+      <!-- ================================================================= -->
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/layout.js"></script>
+  <!-- Charge les données puis la logique d'affichage : -->
+  <script src="../data/associations.js"></script>
+  <script src="page.js"></script>
+</body>
+</html>

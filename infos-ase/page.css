@@ -1,0 +1,89 @@
+/* =========================================================================
+   AZELER — Page « Infos & droits ASE » (Terminal 2)
+   Styles propres à cette page. Réutilise les jetons du design-system.
+   Mobile d'abord.
+   ========================================================================= */
+
+/* Intro */
+.ase-intro { max-width: 760px; }
+.ase-intro .lead { margin-top: 0; }
+
+/* Titres de bloc avec petite pastille emoji */
+.ase-h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; }
+.ase-h2 .ase-emoji { font-size: 1.6rem; line-height: 1; }
+.ase-sub { color: var(--azeler-gray); margin: 0 0 26px; max-width: 720px; }
+
+/* Frise des âges (18 / 21 ans) — colonne sur mobile, ligne dès qu'on a la place */
+.ase-ages { display: grid; gap: 22px; }
+@media (min-width: 720px) { .ase-ages { grid-template-columns: repeat(2, 1fr); } }
+
+.ase-age {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); border: 1px solid #eef0f6;
+  padding: 26px; border-top: 6px solid var(--azeler-blue);
+}
+.ase-age--21 { border-top-color: var(--azeler-accent); }
+.ase-age__num {
+  font-family: var(--font-logo); font-size: 2.4rem; line-height: 1;
+  color: var(--azeler-blue);
+}
+.ase-age--21 .ase-age__num { color: var(--azeler-accent); }
+.ase-age__title { margin: 6px 0 12px; }
+.ase-list { margin: 0; padding-left: 1.15rem; color: var(--azeler-gray); }
+.ase-list li { margin-bottom: 8px; }
+.ase-list li strong { color: var(--azeler-ink); }
+
+/* Encart d'appel (pécule, dossier…) */
+.ase-note {
+  background: var(--azeler-blue-soft);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  border-left: 5px solid var(--azeler-blue);
+}
+.ase-note h3 { margin-top: 0; }
+.ase-note p:last-child { margin-bottom: 0; }
+
+/* FAQ — accordéon natif <details> */
+.ase-faq { max-width: 820px; }
+.ase-faq details {
+  background: #fff; border: 1px solid #eef0f6; border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 4px 6px; margin-bottom: 14px;
+}
+.ase-faq summary {
+  cursor: pointer; list-style: none;
+  padding: 16px 44px 16px 18px; position: relative;
+  font-weight: 800; color: var(--azeler-ink); font-size: 1.05rem;
+}
+.ase-faq summary::-webkit-details-marker { display: none; }
+.ase-faq summary::after {
+  content: "+"; position: absolute; right: 18px; top: 50%;
+  transform: translateY(-50%); font-size: 1.6rem; line-height: 1;
+  color: var(--azeler-blue); transition: transform .2s ease;
+}
+.ase-faq details[open] summary::after { content: "–"; }
+.ase-faq summary:hover { color: var(--azeler-blue); }
+.ase-faq .ase-faq__body { padding: 0 18px 18px; color: var(--azeler-gray); }
+.ase-faq .ase-faq__body p { margin: 0 0 10px; }
+.ase-faq .ase-faq__body p:last-child { margin-bottom: 0; }
+
+/* Encart ADEPAPE — surface foncée pour ressortir */
+.ase-adepape {
+  background: var(--azeler-slate); color: #eef0f6;
+  border-radius: var(--radius-lg); padding: 30px 26px;
+  box-shadow: var(--shadow);
+}
+.ase-adepape h2 { color: #fff; }
+.ase-adepape p { color: #d6d8e2; }
+.ase-adepape .badge { background: rgba(255,255,255,.14); color: #fff; }
+.ase-adepape .ase-law {
+  display: block; font-size: .92rem; color: #b9bcce;
+  margin-top: 16px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px;
+}
+.ase-adepape .btn { margin-top: 18px; }
+
+/* Rappel : mise en avant douce */
+.ase-tip {
+  background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412;
+  border-radius: var(--radius); padding: 16px 20px; margin-top: 26px;
+}
+.ase-tip strong { color: #7c2d12; }

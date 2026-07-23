@@ -1,0 +1,79 @@
+/* =========================================================================
+   AZELER — Styles propres à la page ÉPICERIES (Terminal 4)
+   ========================================================================= */
+
+/* Barre de recherche */
+.epi-search {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 22px;
+}
+.epi-search__input {
+  flex: 1 1 260px;
+  min-width: 0;
+  padding: 12px 16px;
+  font: inherit;
+  color: var(--azeler-ink);
+  background: #fff;
+  border: 2px solid #dfe3f5;
+  border-radius: 12px;
+}
+.epi-search__input:focus {
+  outline: none;
+  border-color: var(--azeler-blue);
+  box-shadow: 0 0 0 3px var(--azeler-blue-soft);
+}
+.epi-search__count {
+  align-self: center;
+  color: var(--azeler-gray);
+  font-size: .95rem;
+}
+
+/* Carte Leaflet */
+.epi-map {
+  height: 420px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e4e7f4;
+  box-shadow: var(--shadow, 0 8px 24px rgba(28,35,64,.08));
+  margin: 0 0 26px;
+  background: #eef1ff;
+}
+.leaflet-popup-content { font-family: inherit; }
+.epi-pop__nom { font-weight: 800; color: var(--azeler-ink); margin-bottom: 4px; }
+.epi-pop__line { color: var(--azeler-gray); font-size: .9rem; margin: 2px 0; }
+
+/* Liste des épiceries */
+.epi-list { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+.epi-item {
+  background: #fff;
+  border: 1px solid #e4e7f4;
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.epi-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-strong, 0 12px 30px rgba(28,35,64,.14)); }
+.epi-item__nom { font-weight: 800; color: var(--azeler-ink); font-size: 1.08rem; margin: 0 0 8px; }
+.epi-item__row { display: flex; gap: 8px; align-items: flex-start; color: var(--azeler-gray); margin: 4px 0; font-size: .95rem; }
+.epi-item__row .ic { flex: 0 0 auto; }
+.epi-item__row a { color: var(--azeler-blue); text-decoration: none; }
+.epi-item__row a:hover { text-decoration: underline; }
+.epi-empty { color: var(--azeler-gray); padding: 20px; text-align: center; }
+
+/* Message de secours si la carte ne charge pas */
+.epi-fallback {
+  background: #fff7ed;
+  border: 1px dashed var(--azeler-accent);
+  color: #9a3412;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 0 0 22px;
+  font-size: .95rem;
+}
+
+@media (max-width: 640px) {
+  .epi-list { grid-template-columns: 1fr; }
+  .epi-map { height: 320px; }
+}

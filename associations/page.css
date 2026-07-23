@@ -1,0 +1,45 @@
+/* =========================================================================
+   AZELER — Page Associations (Terminal 3)
+   Styles propres à la page : barre de filtres + cartes association.
+   ========================================================================= */
+
+/* Barre de filtres */
+.assos-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.assos-filter { cursor: pointer; padding: 8px 16px; font-size: .92rem; }
+.assos-filter.is-active {
+  background: var(--azeler-blue);
+  color: #fff;
+  border-color: var(--azeler-blue);
+}
+
+/* Carte association : colonne pour coller les actions en bas */
+.asso-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.asso-card .card__text { flex: 1; }
+.asso-card__ville {
+  color: var(--azeler-gray);
+  font-size: .9rem;
+  margin: 4px 0 0;
+}
+.asso-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+.asso-card__actions .btn { padding: 9px 16px; font-size: .9rem; }
+
+.asso-empty {
+  grid-column: 1 / -1;
+  color: var(--azeler-gray);
+  text-align: center;
+  padding: 20px 0;
+}
