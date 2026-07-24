@@ -9,8 +9,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/design-system.css">
+  <style>
+    /* « Quitter vite » — bouton de sortie rapide, spécifique à cette fiche sensible.
+       Rouge franc (≠ charte) pour être identifié comme un dispositif de sécurité. */
+    .quick-exit{
+      position:fixed; right:16px; bottom:16px; z-index:9999;
+      display:inline-flex; align-items:center; gap:8px;
+      background:#c81e3a; color:#fff; border:none; border-radius:999px;
+      font-family:'Nunito',sans-serif; font-weight:800; font-size:1rem;
+      padding:12px 20px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.28);
+    }
+    .quick-exit:hover,.quick-exit:focus{ background:#a5162e; outline:3px solid rgba(200,30,58,.4); }
+    .quick-exit__x{ font-size:1.15rem; line-height:1; }
+    .quick-exit-note{
+      display:flex; align-items:flex-start; gap:8px;
+      background:#fdeaed; border:1px solid #f4c2ca; border-radius:12px;
+      padding:12px 16px; font-size:.94rem; color:#7a1226; margin-bottom:22px;
+    }
+    @media (max-width:520px){ .quick-exit{ right:12px; bottom:12px; padding:11px 16px; } }
+  </style>
 </head>
 <body data-base="../" data-page="fiches">
+
+  <!-- Sécurité : bouton de sortie rapide (quitte immédiatement le site) -->
+  <button type="button" class="quick-exit" id="quick-exit"
+          aria-label="Quitter vite ce site et ouvrir une page neutre">
+    <span class="quick-exit__x" aria-hidden="true">✕</span> Quitter vite
+  </button>
+
   <header id="site-header"></header>
 
   <section class="page-hero">
@@ -23,6 +49,12 @@
 
   <section class="section">
     <div class="container" style="max-width:860px">
+      <div class="quick-exit-note" role="note">
+        <span aria-hidden="true">🔒</span>
+        <span>Tu peux quitter cette page à tout moment&nbsp;: bouton
+          <strong>« Quitter vite »</strong> en bas à droite, ou touche
+          <strong>Échap</strong>. Une page neutre s'ouvre aussitôt.</span>
+      </div>
       <p class="lead">Ce que tu as vécu n'est pas de ta faute. Tu as le droit d'être protégé·e,
         écouté·e et accompagné·e — quel que soit ton genre, ton âge ou ta situation administrative.
         Tu choisis ce que tu veux faire, à ton rythme.</p>
@@ -110,5 +142,20 @@
 
   <footer id="site-footer"></footer>
   <script src="../assets/js/layout.js"></script>
+  <script>
+    /* « Quitter vite » : ouvre une page neutre dans un nouvel onglet et remplace
+       la fiche dans l'onglet courant, sans la laisser dans l'historique. */
+    (function () {
+      function quitterVite() {
+        try { window.open('https://www.google.fr/', '_blank'); } catch (e) {}
+        window.location.replace('https://www.meteofrance.com/');
+      }
+      var btn = document.getElementById('quick-exit');
+      if (btn) btn.addEventListener('click', quitterVite);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') quitterVite();
+      });
+    })();
+  </script>
 </body>
 </html>
