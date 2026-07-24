@@ -72,6 +72,11 @@
     const prenom = form.prenom.value.trim();
     if (!prenom) fail('prenom', 'Dis-nous au moins ton prénom.');
 
+    // Ville
+    if (form.ville && !form.ville.value.trim()) {
+      fail('ville', 'Indique ta ville pour qu\'on organise la remise du kit.');
+    }
+
     // Contact : e-mail OU téléphone (au moins un, et valide)
     const email = form.email.value.trim();
     const tel   = form.telephone.value.trim();

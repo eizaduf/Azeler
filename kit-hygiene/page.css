@@ -51,11 +51,12 @@
   background: #fff;
 }
 
-/* ---------- Inputs / textarea ---------- */
+/* ---------- Inputs / textarea / select ---------- */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-textarea {
+textarea,
+.field__select {
   width: 100%;
   font: inherit;
   color: var(--azeler-ink);
@@ -70,10 +71,25 @@ input::placeholder,
 textarea::placeholder { color: #a3a8bd; }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+.field__select:focus {
   outline: none;
   border-color: var(--azeler-blue);
   box-shadow: 0 0 0 3px rgba(81, 112, 255, .18);
+}
+
+/* ---------- Contenu des kits ---------- */
+.kits-contenu { margin: 8px 0 40px; }
+.kit-box { display: flex; flex-direction: column; }
+.kit-list { list-style: none; padding: 0; margin: 10px 0 0; }
+.kit-list li {
+  position: relative; padding: 6px 0 6px 24px;
+  color: var(--azeler-gray); border-bottom: 1px solid #f0f2fa;
+}
+.kit-list li:last-child { border-bottom: 0; }
+.kit-list li::before {
+  content: "•"; position: absolute; left: 6px;
+  color: var(--azeler-accent, #FF5A6E); font-weight: 800;
 }
 
 textarea { resize: vertical; min-height: 88px; }

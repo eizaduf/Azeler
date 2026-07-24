@@ -82,6 +82,52 @@
       </div>
       <!-- ===== fin fiche de présentation ===== -->
 
+      <!-- ===== CE QUE CONTIENT UN KIT ===== -->
+      <div class="kits-contenu">
+        <div class="text-center" style="max-width:640px; margin:0 auto 24px">
+          <span class="badge">Le contenu</span>
+          <h2 class="mt-2">Ce que contient un kit</h2>
+          <p class="lead">Chaque kit part d'une base commune, à laquelle s'ajoutent des produits
+            spécifiques selon ton choix. Tu peux préciser tes besoins dans le formulaire.</p>
+        </div>
+        <div class="grid grid--3">
+          <div class="card kit-box">
+            <div class="card__icon">🧴</div>
+            <h3 class="card__title">Communs à tous les kits</h3>
+            <ul class="kit-list">
+              <li>Gel douche ou savon</li>
+              <li>Shampoing</li>
+              <li>Déodorant</li>
+              <li>Dentifrice + brosse à dents</li>
+              <li>Petite serviette ou gant de toilette</li>
+              <li>Crème hydratante (visage et corps)</li>
+              <li>Mouchoirs</li>
+              <li>Coupe-ongles</li>
+              <li>Petit paquet de lingettes</li>
+              <li>Préservatifs</li>
+            </ul>
+          </div>
+          <div class="card kit-box">
+            <div class="card__icon">🌸</div>
+            <h3 class="card__title">Kit pour femmes (en plus)</h3>
+            <ul class="kit-list">
+              <li>Serviettes hygiéniques de différentes tailles</li>
+              <li>Élastiques et pinces à cheveux</li>
+              <li>Produit d'hygiène intime adapté</li>
+            </ul>
+          </div>
+          <div class="card kit-box">
+            <div class="card__icon">🪒</div>
+            <h3 class="card__title">Kit pour hommes (en plus)</h3>
+            <ul class="kit-list">
+              <li>Après-rasage</li>
+              <li>Mousse ou gel à raser</li>
+              <li>Rasoirs jetables</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="grid grid--2 form-layout">
 
         <!-- ---------- Colonne principale : le formulaire ---------- -->
@@ -125,6 +171,26 @@
                      placeholder="06 12 34 56 78">
 
               <p class="field__error" data-error-for="contact"></p>
+            </fieldset>
+
+            <!-- Ville -->
+            <div class="field">
+              <label for="ville">Ta ville <span class="req-star">*</span></label>
+              <input type="text" id="ville" name="ville" autocomplete="address-level2"
+                     placeholder="Ex. : Pantin" required>
+              <p class="field__error" data-error-for="ville"></p>
+            </div>
+
+            <!-- Type de kit -->
+            <fieldset class="field field--group">
+              <legend>Quel kit veux-tu ? <span class="req-star">*</span></legend>
+              <div class="choice-row">
+                <label class="choice"><input type="radio" name="typeKit" value="Kit standard" checked><span>Kit standard</span></label>
+                <label class="choice"><input type="radio" name="typeKit" value="Kit pour femmes"><span>Kit pour femmes</span></label>
+                <label class="choice"><input type="radio" name="typeKit" value="Kit pour hommes"><span>Kit pour hommes</span></label>
+              </div>
+              <p class="field__hint">Le kit standard contient l'essentiel commun à tou·tes. Les kits
+                « femmes » ou « hommes » ajoutent des produits spécifiques.</p>
             </fieldset>
 
             <!-- Livraison au choix : adresse OU point de retrait -->
@@ -176,11 +242,22 @@
               <p class="field__error" data-error-for="contenu"></p>
             </fieldset>
 
+            <!-- Niveau d'urgence (facultatif) -->
+            <div class="field">
+              <label for="urgence">Niveau d'urgence (facultatif)</label>
+              <select id="urgence" name="urgence" class="field__select">
+                <option value="">Je préfère ne pas préciser</option>
+                <option value="Pas urgent">Pas urgent</option>
+                <option value="Assez urgent">Assez urgent</option>
+                <option value="Très urgent">Très urgent — j'en ai besoin vite</option>
+              </select>
+            </div>
+
             <!-- Message facultatif -->
             <div class="field">
-              <label for="message">Un message (facultatif)</label>
+              <label for="message">Produits spécifiques ou message (facultatif)</label>
               <textarea id="message" name="message" rows="3"
-                        placeholder="Un besoin particulier ? Une taille, une allergie… dis-nous tout."></textarea>
+                        placeholder="Un besoin particulier ? Une taille, une allergie, un produit précis… dis-nous tout."></textarea>
             </div>
 
             <!-- Consentement RGPD obligatoire -->
