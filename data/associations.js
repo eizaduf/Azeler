@@ -70,6 +70,46 @@ window.AZELER_ASSOCIATIONS = [
     telephone: ""
   },
   {
+    nom: "ANDES — réseau des épiceries solidaires",
+    theme: "alimentaire",
+    ville: "National",
+    description: "Réseau national de plus de 630 épiceries solidaires : faire ses courses avec dignité, denrées de 10 % à 30 % de leur valeur. Annuaire pour trouver la plus proche.",
+    lien: "https://www.epiceries-solidaires.org",
+    telephone: ""
+  },
+  {
+    nom: "SAWA",
+    theme: "alimentaire",
+    ville: "Paris",
+    description: "Association gérant une épicerie sociale et solidaire ouverte à tous (18 rue Tchaïkovski, 75018) : alimentaire, hygiène, entretien, et accompagnement vers l'insertion.",
+    lien: "https://sawa-asso.org",
+    telephone: ""
+  },
+  {
+    nom: "La Joyeuse Chapelle",
+    theme: "alimentaire",
+    ville: "Paris",
+    description: "Épiceries solidaires du quartier de la Chapelle (75018) réservées à un public en difficulté : alimentaire, hygiène, vêtements et fournitures à 10-20 % de leur valeur.",
+    lien: "https://lajoyeusechapelle.org",
+    telephone: ""
+  },
+  {
+    nom: "NOUS anti-gaspi",
+    theme: "alimentaire",
+    ville: "Paris",
+    description: "Épiceries anti-gaspillage ouvertes à tous, sans conditions de ressources : fruits, légumes, frais et épicerie issus des invendus, jusqu'à -30 %. Plusieurs magasins à Paris.",
+    lien: "https://www.nous-antigaspi.com",
+    telephone: ""
+  },
+  {
+    nom: "Corot Entraide (Apprentis d'Auteuil)",
+    theme: "alimentaire",
+    ville: "Paris",
+    description: "Héberge et accompagne les jeunes de 18-25 ans sans domicile à Paris et gère une épicerie sociale : plats à réchauffer, conserves, fruits et légumes, produits d'hygiène.",
+    lien: "https://www.corot-entraide.org",
+    telephone: ""
+  },
+  {
     nom: "Croix-Rouge française",
     theme: "sante",
     ville: "National",

@@ -1,132 +1,171 @@
 /* =========================================================================
-   AZELER — DONNÉES DES ÉPICERIES SOCIALES & SOLIDAIRES
-   Propriété du TERMINAL 4. Remplis/complète cette liste.
-   lat/lng = coordonnées GPS (pour la carte). Tu peux les trouver sur
-   nominatim.openstreetmap.org en cherchant l'adresse.
+   AZELER — DONNÉES DES ÉPICERIES SOCIALES, SOLIDAIRES & ANTI-GASPI
+   Propriété du TERMINAL 4.
+   lat/lng = coordonnées GPS (pour la carte), relevées via Nominatim /
+   OpenStreetMap au niveau de l'adresse.
 
-   Sources : réseaux ANDES (epiceries-solidaires.org), AGORAé/FAGE,
-   Croix-Rouge française, Secours populaire, CCAS. Coordonnées relevées
-   sur OpenStreetMap / Nominatim (niveau adresse ou quartier).
+   Deux familles de structures :
+   • Épiceries SOLIDAIRES / SOCIALES : accès sur critères sociaux (bon des
+     services sociaux, dossier), denrées de 10 % à 30 % de leur valeur.
+   • Épiceries ANTI-GASPI (réseau NOUS) : ouvertes à tous, invendus revalorisés
+     à prix réduits (jusqu'à -30 %), sans conditions de ressources.
+
+   Coordonnées vérifiées en juillet 2026. Vérifie les horaires par téléphone
+   avant de te déplacer, ils changent souvent.
    ========================================================================= */
 window.AZELER_EPICERIES = [
+
+  /* ------------------------- ÉPICERIES SOLIDAIRES / SOCIALES ------------ */
   {
-    nom: "AGORAé Paris (FAGE)",
-    adresse: "6 rue Saulnier",
-    ville: "Paris",
-    codePostal: "75009",
-    horaires: "Lun-Ven 12h-19h",
-    telephone: "01 40 33 70 70",
-    lat: 48.8760,
-    lng: 2.3466
-  },
-  {
-    nom: "Épicerie solidaire du Secours populaire (Libre Service Solidaire)",
-    adresse: "6 passage Ramey",
+    nom: "Épicerie solidaire SAWA",
+    adresse: "18 rue Tchaïkovski",
     ville: "Paris",
     codePostal: "75018",
-    horaires: "Mar-Jeu 9h30-16h30",
-    telephone: "01 44 78 21 00",
-    lat: 48.8887,
-    lng: 2.3466
+    horaires: "Lun et Mer-Sam 10h-20h, Dim 9h-14h",
+    telephone: "",
+    lat: 48.8950321,
+    lng: 2.3651843
   },
   {
-    nom: "Épicerie sociale Emmaüs Coup de Main",
-    adresse: "24 rue de la Banque",
+    nom: "La Joyeuse Chapelle — épicerie solidaire",
+    adresse: "63 rue de la Chapelle",
     ville: "Paris",
-    codePostal: "75002",
-    horaires: "Lun-Ven 10h-17h",
-    telephone: "01 42 33 21 21",
-    lat: 48.8676,
-    lng: 2.3401
+    codePostal: "75018",
+    horaires: "Denrées à 10-20 % du prix — accès public en difficulté",
+    telephone: "",
+    lat: 48.8957042,
+    lng: 2.3587673
   },
   {
-    nom: "Épicerie solidaire de la Croix-Rouge — Paris 12",
-    adresse: "60 rue de Wattignies",
+    nom: "La Joyeuse Chapelle — hygiène & vêtements",
+    adresse: "80 rue de la Chapelle",
+    ville: "Paris",
+    codePostal: "75018",
+    horaires: "Hygiène, vêtements, fournitures à 10-20 % du prix",
+    telephone: "",
+    lat: 48.8961526,
+    lng: 2.3597260
+  },
+  {
+    nom: "Libre Service Solidaire (Secours populaire 75)",
+    adresse: "142 boulevard Vincent Auriol",
+    ville: "Paris",
+    codePostal: "75013",
+    horaires: "Sur orientation d'un travailleur social",
+    telephone: "",
+    lat: 48.8326371,
+    lng: 2.3604989
+  },
+  {
+    nom: "Libre Service Solidaire (Secours populaire 75)",
+    adresse: "10 rue Montcalm",
+    ville: "Paris",
+    codePostal: "75018",
+    horaires: "Sur orientation d'un travailleur social",
+    telephone: "",
+    lat: 48.8920914,
+    lng: 2.3359952
+  },
+  {
+    nom: "Épicerie solidaire de Crimée",
+    adresse: "166 rue de Crimée",
+    ville: "Paris",
+    codePostal: "75019",
+    horaires: "Denrées de qualité à 10-30 % de leur valeur",
+    telephone: "",
+    lat: 48.8896392,
+    lng: 2.3780623
+  },
+  {
+    nom: "AGORAé Paris (épicerie solidaire étudiante — AGEP/FAGE)",
+    adresse: "4 place Jussieu",
+    ville: "Paris",
+    codePostal: "75005",
+    horaires: "Sur dossier étudiant — produits à ~10 % du prix",
+    telephone: "",
+    lat: 48.8479656,
+    lng: 2.3552525
+  },
+  {
+    nom: "Épicerie sociale Epicéas — Aubervilliers Solidarité",
+    adresse: "29 rue de la Commune de Paris",
+    ville: "Aubervilliers",
+    codePostal: "93300",
+    horaires: "Sur orientation sociale",
+    telephone: "01 48 33 69 18",
+    lat: 48.9124490,
+    lng: 2.3821370
+  },
+  {
+    nom: "Épicerie solidaire Afana",
+    adresse: "44 boulevard Anatole France",
+    ville: "Aubervilliers",
+    codePostal: "93300",
+    horaires: "Sur orientation sociale",
+    telephone: "01 43 52 17 48",
+    lat: 48.9183130,
+    lng: 2.3832010
+  },
+
+  /* ------------------------- ÉPICERIES ANTI-GASPI (réseau NOUS) --------- */
+  {
+    nom: "NOUS anti-gaspi — Clichy",
+    adresse: "95 avenue de Clichy",
+    ville: "Paris",
+    codePostal: "75017",
+    horaires: "Lun-Sam 10h-20h45 — invendus jusqu'à -30 %",
+    telephone: "07 45 23 39 73",
+    lat: 48.8888889,
+    lng: 2.3228999
+  },
+  {
+    nom: "NOUS anti-gaspi — Jean Jaurès",
+    adresse: "137 avenue Jean Jaurès",
+    ville: "Paris",
+    codePostal: "75019",
+    horaires: "Lun-Sam 10h-20h45, Dim 10h-13h — invendus -30 %",
+    telephone: "01 40 35 01 28",
+    lat: 48.8864603,
+    lng: 2.3836976
+  },
+  {
+    nom: "NOUS anti-gaspi — Ledru Rollin",
+    adresse: "79 avenue Ledru Rollin",
     ville: "Paris",
     codePostal: "75012",
-    horaires: "Mar et Jeu 14h-17h",
-    telephone: "01 44 43 11 00",
-    lat: 48.8367,
-    lng: 2.3946
+    horaires: "Lun-Sam 10h-20h45 — invendus jusqu'à -30 %",
+    telephone: "01 45 84 38 72",
+    lat: 48.8505212,
+    lng: 2.3751034
   },
   {
-    nom: "Épicerie solidaire Le Local (CCAS)",
-    adresse: "50 avenue Édouard Vaillant",
-    ville: "Pantin",
-    codePostal: "93500",
-    horaires: "Mer-Ven 10h-13h et 14h-17h",
-    telephone: "01 49 15 40 00",
-    lat: 48.8977,
-    lng: 2.4056
-  },
-  {
-    nom: "Épicerie solidaire Saint-Denis (Secours populaire 93)",
-    adresse: "9 rue Auguste Blanqui",
-    ville: "Saint-Denis",
-    codePostal: "93200",
-    horaires: "Lun-Ven 9h-12h30",
-    telephone: "01 48 20 25 25",
-    lat: 48.9362,
-    lng: 2.3574
-  },
-  {
-    nom: "AGORAé de Créteil (FAGE / UPEC)",
-    adresse: "61 avenue du Général de Gaulle",
-    ville: "Créteil",
-    codePostal: "94000",
-    horaires: "Lun-Ven 11h30-18h",
-    telephone: "01 45 17 10 00",
-    lat: 48.7898,
-    lng: 2.4474
-  },
-  {
-    nom: "Épicerie sociale et solidaire d'Ivry (CCAS)",
-    adresse: "16 rue Marat",
-    ville: "Ivry-sur-Seine",
-    codePostal: "94200",
-    horaires: "Mar-Ven 9h-12h et 14h-17h",
-    telephone: "01 49 60 25 00",
-    lat: 48.8138,
-    lng: 2.3876
-  },
-  {
-    nom: "Épicerie solidaire de Nanterre (Croix-Rouge)",
-    adresse: "8 rue des Anciennes Mairies",
-    ville: "Nanterre",
-    codePostal: "92000",
-    horaires: "Lun, Mer, Ven 9h30-12h30",
-    telephone: "01 47 21 40 00",
-    lat: 48.8924,
-    lng: 2.2069
-  },
-  {
-    nom: "Épi'Sol — Épicerie solidaire de Montreuil",
-    adresse: "3 rue de la Révolution",
-    ville: "Montreuil",
-    codePostal: "93100",
-    horaires: "Mar-Sam 10h-18h",
-    telephone: "01 48 70 60 00",
-    lat: 48.8638,
-    lng: 2.4485
-  },
-  {
-    nom: "Épicerie sociale Aurore — Paris 20",
-    adresse: "35 rue des Prairies",
+    nom: "NOUS anti-gaspi — Montparnasse",
+    adresse: "11 rue de l'Ouest",
     ville: "Paris",
-    codePostal: "75020",
-    horaires: "Lun-Ven 9h-13h",
-    telephone: "01 47 00 92 12",
-    lat: 48.8637,
-    lng: 2.4009
+    codePostal: "75014",
+    horaires: "Lun-Sam 10h-20h45, Dim 10h-13h — invendus -30 %",
+    telephone: "06 49 52 49 99",
+    lat: 48.8372241,
+    lng: 2.3221648
   },
   {
-    nom: "Épicerie solidaire de Bobigny (CCAS)",
-    adresse: "9 rue du Chemin Vert",
-    ville: "Bobigny",
-    codePostal: "93000",
-    horaires: "Mar-Jeu 9h-12h et 13h30-16h30",
-    telephone: "01 41 60 93 93",
-    lat: 48.9063,
-    lng: 2.4396
+    nom: "NOUS anti-gaspi — Place des Fêtes",
+    adresse: "64 rue du Pré Saint-Gervais",
+    ville: "Paris",
+    codePostal: "75019",
+    horaires: "Lun-Sam 10h-20h45, Dim 10h-13h — invendus -30 %",
+    telephone: "01 40 16 94 54",
+    lat: 48.8787180,
+    lng: 2.3977908
+  },
+  {
+    nom: "NOUS anti-gaspi — Poissonnière",
+    adresse: "44 rue du Faubourg Poissonnière",
+    ville: "Paris",
+    codePostal: "75010",
+    horaires: "Lun-Sam 10h-20h45, Dim 9h-13h — invendus -30 %",
+    telephone: "01 47 70 11 17",
+    lat: 48.8740833,
+    lng: 2.3480437
   }
 ];
