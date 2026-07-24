@@ -36,7 +36,7 @@
     header.className = 'site-header';
     header.innerHTML =
       '<div class="container">' +
-        '<a class="logo" href="' + base + 'index.html">AZELER</a>' +
+        '<a class="logo" href="' + base + 'index.html"><img class="logo-img" src="' + base + 'assets/img/logo-azeler.png" alt="AZELER — Votre asso, vos infos !"></a>' +
         '<button class="burger" aria-label="Menu">&#9776;</button>' +
         '<nav class="nav" id="mainnav">' + navHtml() + '</nav>' +
       '</div>';
@@ -52,7 +52,7 @@
       '<div class="container">' +
         '<div class="footer-grid">' +
           '<div>' +
-            '<a class="logo" href="' + base + 'index.html">AZELER</a>' +
+            '<a class="logo" href="' + base + 'index.html"><img class="logo-img" src="' + base + 'assets/img/logo-azeler.png" alt="AZELER — Votre asso, vos infos !"></a>' +
             '<p class="tagline" style="color:#cfd4e6">« Votre asso, vos infos&nbsp;! »</p>' +
             '<p>Par des jeunes de l\'ASE, pour des jeunes de l\'ASE.<br>Association créée en 2026.</p>' +
           '</div>' +

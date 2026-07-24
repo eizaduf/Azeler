@@ -70,6 +70,9 @@ h3 { font-size: 1.25rem; font-weight: 800; }
   line-height: 1;
 }
 .logo--blue { color: var(--azeler-blue); }
+.logo-img { height: 44px; width: auto; display: block; }
+.site-footer .logo-img { height: 54px; margin-bottom: 8px; }
+@media (max-width: 520px){ .logo-img { height: 38px; } }
 .tagline { font-family: var(--font-logo); color: var(--azeler-white); opacity: .95; }
 
 /* ---- 4. Boutons ---- */
