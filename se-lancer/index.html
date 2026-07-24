@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/pole.css"><!-- fiche de présentation de pôle -->
   <link rel="stylesheet" href="page.css"><!-- styles propres à CETTE page -->
 </head>
 <body data-base="../" data-page="se-lancer">
@@ -26,15 +27,61 @@
     <div class="container">
       <!-- ================= ZONE DE TRAVAIL DU TERMINAL 1 ================= -->
 
-      <div class="sl-intro">
-        <span class="badge">6 rubriques essentielles</span>
-        <p class="lead mt-2">
-          Devenir autonome, ça s'apprend pas à pas. On a regroupé ici les
-          démarches qui comptent vraiment, avec à chaque fois des conseils
-          simples et les bons interlocuteurs. Prends-les une par une, sans
-          pression. 💪
-        </p>
+      <!-- ===== FICHE DE PRÉSENTATION DU PÔLE ===== -->
+      <div class="pole-intro">
+
+        <div class="pole-chapo">
+          <span class="badge">Pôle autonomie</span>
+          <p class="lead">
+            <strong>Pour qui&nbsp;?</strong> Toi qui sors (ou t'apprêtes à sortir) de l'ASE et dois
+            gérer seul·e ton logement, ton argent, ta santé et tes papiers.
+            <strong>Ce que tu trouves ici&nbsp;:</strong> les 6 démarches qui comptent vraiment,
+            avec des conseils simples et les bons interlocuteurs gratuits.
+            <strong>Quand l'utiliser&nbsp;:</strong> dès maintenant, une étape à la fois, sans pression. 💪
+          </p>
+        </div>
+
+        <div class="card pole-brief">
+          <h2 class="pole-block__title">✨ En bref</h2>
+          <ul class="pole-checks">
+            <li>6 rubriques&nbsp;: logement, emploi &amp; formation, santé, budget, démarches administratives, numérique.</li>
+            <li>Pour chacune&nbsp;: des conseils concrets + les dispositifs officiels gratuits (Visale, Mission locale, C2S…).</li>
+            <li>Tout est pensé pour les 16-25 ans et ne coûte rien.</li>
+            <li>Pas besoin de tout faire d'un coup&nbsp;: commence par ce qui est le plus urgent pour toi.</li>
+          </ul>
+        </div>
+
+        <div class="card pole-how">
+          <h2 class="pole-block__title">🧭 Comment procéder</h2>
+          <ol class="pole-steps">
+            <li>Sécurise l'essentiel&nbsp;: un toit (115 ou foyer de jeunes travailleurs), tes papiers, ta couverture santé.</li>
+            <li>Active tes comptes clés&nbsp;: CAF, Ameli, France Travail, et FranceConnect pour tout centraliser.</li>
+            <li>Pousse la porte de la Mission locale&nbsp;: un·e référent·e t'accompagne gratuitement sur tout.</li>
+            <li>Demande tes aides (APL, C2S, Contrat d'engagement jeune) et note chaque démarche.</li>
+          </ol>
+        </div>
+
+        <div class="grid grid--2 pole-cols">
+          <div class="conseil-box">
+            <h3 class="pole-block__title">💡 Bon à savoir</h3>
+            <p class="mb-0">Le <strong>contrat jeune majeur</strong> et le <strong>pécule</strong> (versé à ta majorité par
+              la Caisse des dépôts) sont détaillés dans le pôle <a href="../fiches/index.html#droits-ase">Infos &amp; droits ASE</a>.
+              Un·e conseiller·ère de la Mission locale peut t'aider à monter <em>tous</em> ces dossiers d'un coup.</p>
+          </div>
+          <div class="card pole-further">
+            <h3 class="pole-block__title">🔗 Pour aller plus loin</h3>
+            <div class="pole-links">
+              <a class="pole-link pole-link--out" href="https://www.1jeune1solution.gouv.fr/" target="_blank" rel="noopener">1jeune1solution</a>
+              <a class="pole-link pole-link--out" href="https://www.service-public.fr/particuliers/vosdroits/N19806" target="_blank" rel="noopener">service-public.fr</a>
+              <a class="pole-link pole-link--out" href="https://www.mesdroitssociaux.gouv.fr/" target="_blank" rel="noopener">mesdroitssociaux</a>
+              <a class="pole-link" href="../fiches/index.html">Infos &amp; fiches</a>
+              <a class="pole-link" href="../fiches/index.html#droits-ase">Droits ASE</a>
+            </div>
+          </div>
+        </div>
+
       </div>
+      <!-- ===== fin fiche de présentation ===== -->
 
       <div class="grid grid--3 sl-cards mt-3">
 

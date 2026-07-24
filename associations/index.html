@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/pole.css"><!-- fiche de présentation de pôle -->
   <link rel="stylesheet" href="page.css">
 </head>
 <body data-base="../" data-page="associations">
@@ -25,6 +26,64 @@
   <section class="section">
     <div class="container">
       <!-- ================= ZONE DE TRAVAIL DU TERMINAL 3 ================= -->
+
+      <!-- ===== FICHE DE PRÉSENTATION DU PÔLE ===== -->
+      <div class="pole-intro">
+
+        <div class="pole-chapo">
+          <span class="badge">Pôle accompagnement humain</span>
+          <p class="lead">
+            <strong>Pour qui&nbsp;?</strong> Toi qui veux un contact humain, un accompagnement dans la durée
+            ou un parrainage — pas seulement une info en ligne.
+            <strong>Ce que tu trouves ici&nbsp;:</strong> un annuaire d'associations (assos de jeunes, entraide
+            entre pairs, réseau ADEPAPE) filtrable par thème.
+            <strong>Quand l'utiliser&nbsp;:</strong> quand tu veux être épaulé·e par quelqu'un, monter un dossier
+            ou faire valoir tes droits.
+          </p>
+        </div>
+
+        <div class="card pole-brief">
+          <h2 class="pole-block__title">✨ En bref</h2>
+          <ul class="pole-checks">
+            <li>Filtre par thème (logement, alimentaire, santé, juridique, emploi, ADEPAPE…) pour trouver la bonne asso.</li>
+            <li>Le <strong>réseau ADEPAPE</strong> — d'ancien·ne·s de l'ASE qui aident les plus jeunes — existe dans chaque département.</li>
+            <li>L'accompagnement associatif est <strong>gratuit et confidentiel</strong>.</li>
+            <li>Selon les structures&nbsp;: parrainage, aides d'urgence, aide aux démarches, écoute entre pairs.</li>
+          </ul>
+        </div>
+
+        <div class="card pole-how">
+          <h2 class="pole-block__title">🧭 Comment procéder</h2>
+          <ol class="pole-steps">
+            <li>Filtre par le thème ou le besoin qui te concerne.</li>
+            <li>Clique sur une carte pour ouvrir le site de l'association.</li>
+            <li>Contacte-la (mail ou téléphone) en expliquant simplement ta situation.</li>
+            <li>Rien près de chez toi&nbsp;? Écris à l'ADEPAPE de ton département ou à une asso nationale à distance.</li>
+          </ol>
+        </div>
+
+        <div class="grid grid--2 pole-cols">
+          <div class="conseil-box">
+            <h3 class="pole-block__title">💡 Bon à savoir</h3>
+            <p class="mb-0">Les <strong>ADEPAPE</strong> agissent dans le cadre de l'article <strong>L.224-11</strong>
+              du Code de l'action sociale et des familles. Repère celle de ton département via la fédération
+              nationale, et n'hésite pas à demander un <strong>parrain ou une marraine</strong> pour être épaulé·e dans la durée.</p>
+          </div>
+          <div class="card pole-further">
+            <h3 class="pole-block__title">🔗 Pour aller plus loin</h3>
+            <div class="pole-links">
+              <a class="pole-link pole-link--out" href="https://www.adepape.org/" target="_blank" rel="noopener">adepape.org</a>
+              <a class="pole-link pole-link--out" href="https://www.repairs.asso.fr/" target="_blank" rel="noopener">Repairs&nbsp;!</a>
+              <a class="pole-link pole-link--out" href="https://www.defenseurdesdroits.fr/" target="_blank" rel="noopener">Défenseur des droits</a>
+              <a class="pole-link" href="../fiches/index.html">Infos &amp; fiches pratiques</a>
+              <a class="pole-link" href="../se-lancer/index.html">Se lancer</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ===== fin fiche de présentation ===== -->
+
       <p>Filtre par thème pour trouver l'aide dont tu as besoin. Clique sur une carte pour visiter le site de l'association.</p>
       <div id="assos-filters" class="assos-filters" role="group" aria-label="Filtrer les associations par thème"></div>
       <div id="assos-grid" class="grid grid--3"></div>

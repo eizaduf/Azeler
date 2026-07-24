@@ -1,0 +1,177 @@
+/* =========================================================================
+   AZELER — Page « Infos & fiches pratiques »
+   Styles propres à cette page. Réutilise les jetons du design-system.
+   Bloc .ase-* récupéré de l'ancienne page « Infos & droits ASE » (fusion).
+   Mobile d'abord.
+   ========================================================================= */
+
+/* Barre de navigation entre les deux catégories */
+.cat-nav {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+}
+.cat-nav__lbl { font-weight: 800; color: var(--azeler-ink); }
+
+/* Intro */
+.ase-intro { max-width: 760px; }
+.ase-intro .lead { margin-top: 0; }
+
+/* Titres de bloc avec petite pastille emoji */
+.ase-h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; }
+.ase-h2 .ase-emoji { font-size: 1.6rem; line-height: 1; }
+.ase-sub { color: var(--azeler-gray); margin: 0 0 26px; max-width: 720px; }
+
+/* Frise des âges (18 / 21 ans) — colonne sur mobile, ligne dès qu'on a la place */
+.ase-ages { display: grid; gap: 22px; }
+@media (min-width: 720px) { .ase-ages { grid-template-columns: repeat(2, 1fr); } }
+
+.ase-age {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); border: 1px solid #eef0f6;
+  padding: 26px; border-top: 6px solid var(--azeler-blue);
+}
+.ase-age--21 { border-top-color: var(--azeler-accent); }
+.ase-age__num {
+  font-family: var(--font-logo); font-size: 2.4rem; line-height: 1;
+  color: var(--azeler-blue);
+}
+.ase-age--21 .ase-age__num { color: var(--azeler-accent); }
+.ase-age__title { margin: 6px 0 12px; }
+.ase-list { margin: 0; padding-left: 1.15rem; color: var(--azeler-gray); }
+.ase-list li { margin-bottom: 8px; }
+.ase-list li strong { color: var(--azeler-ink); }
+
+/* Encart d'appel (pécule, dossier…) */
+.ase-note {
+  background: var(--azeler-blue-soft);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  border-left: 5px solid var(--azeler-blue);
+}
+.ase-note h3 { margin-top: 0; }
+.ase-note p:last-child { margin-bottom: 0; }
+
+/* FAQ — accordéon natif <details> */
+.ase-faq { max-width: 820px; }
+.ase-faq details {
+  background: #fff; border: 1px solid #eef0f6; border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 4px 6px; margin-bottom: 14px;
+}
+.ase-faq summary {
+  cursor: pointer; list-style: none;
+  padding: 16px 44px 16px 18px; position: relative;
+  font-weight: 800; color: var(--azeler-ink); font-size: 1.05rem;
+}
+.ase-faq summary::-webkit-details-marker { display: none; }
+.ase-faq summary::after {
+  content: "+"; position: absolute; right: 18px; top: 50%;
+  transform: translateY(-50%); font-size: 1.6rem; line-height: 1;
+  color: var(--azeler-blue); transition: transform .2s ease;
+}
+.ase-faq details[open] summary::after { content: "–"; }
+.ase-faq summary:hover { color: var(--azeler-blue); }
+.ase-faq .ase-faq__body { padding: 0 18px 18px; color: var(--azeler-gray); }
+.ase-faq .ase-faq__body p { margin: 0 0 10px; }
+.ase-faq .ase-faq__body p:last-child { margin-bottom: 0; }
+
+/* Encart ADEPAPE — surface foncée pour ressortir */
+.ase-adepape {
+  background: var(--azeler-slate); color: #eef0f6;
+  border-radius: var(--radius-lg); padding: 30px 26px;
+  box-shadow: var(--shadow);
+}
+.ase-adepape h2 { color: #fff; }
+.ase-adepape p { color: #d6d8e2; }
+.ase-adepape .badge { background: rgba(255,255,255,.14); color: #fff; }
+.ase-adepape .ase-law {
+  display: block; font-size: .92rem; color: #b9bcce;
+  margin-top: 16px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px;
+}
+.ase-adepape .btn { margin-top: 18px; }
+
+/* Rappel : mise en avant douce */
+.ase-tip {
+  background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412;
+  border-radius: var(--radius); padding: 16px 20px; margin-top: 26px;
+}
+.ase-tip strong { color: #7c2d12; }
+
+/* =========================================================================
+   MOTEUR DE RECHERCHE DES FICHES « Logement & accès aux droits »
+   (préfixe .fx- pour ne pas entrer en conflit avec les .fiche-* du
+   design-system : .fiche-note, .fiche-table, .fiche-sources)
+   ========================================================================= */
+
+/* Barre de recherche */
+.fx-search { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 20px; }
+.fx-search__input {
+  flex: 1 1 280px; min-width: 0; padding: 14px 18px;
+  font: inherit; color: var(--azeler-ink); background: #fff;
+  border: 2px solid #dfe3f5; border-radius: 14px;
+}
+.fx-search__input:focus {
+  outline: none; border-color: var(--azeler-blue);
+  box-shadow: 0 0 0 3px var(--azeler-blue-soft);
+}
+.fx-search__count { align-self: center; color: var(--azeler-gray); font-size: .95rem; }
+
+/* Puces de filtre par thématique */
+.fx-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
+.fx-filter {
+  font-family: inherit; font-weight: 700; font-size: .95rem;
+  padding: 9px 16px; border-radius: 999px; cursor: pointer;
+  background: #fff; color: var(--azeler-ink);
+  border: 1.5px solid #d9def0;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.fx-filter:hover { border-color: var(--azeler-blue); }
+.fx-filter.is-active {
+  background: var(--azeler-blue); color: #fff; border-color: var(--azeler-blue);
+}
+
+/* Grille de résultats */
+.fx-list { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .fx-list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .fx-list { grid-template-columns: 1fr; } }
+
+/* Carte-fiche */
+.fx-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid #e4e7f4; border-radius: 16px;
+  padding: 22px 22px 20px; text-decoration: none; color: inherit;
+  box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease;
+}
+.fx-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-strong); }
+.fx-card__top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.fx-card__emoji { font-size: 1.7rem; line-height: 1; }
+.fx-card__theme {
+  font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .02em;
+  color: var(--azeler-blue); background: var(--azeler-blue-soft);
+  padding: 4px 10px; border-radius: 999px;
+}
+.fx-card__title { margin: 0 0 8px; font-size: 1.12rem; color: var(--azeler-ink); }
+.fx-card__resume { margin: 0 0 16px; color: var(--azeler-gray); font-size: .96rem; }
+.fx-card__cta {
+  margin-top: auto; align-self: flex-start; font-weight: 800; color: var(--azeler-blue);
+}
+.fx-card:hover .fx-card__cta { text-decoration: underline; }
+
+/* Aucun résultat */
+.fx-empty {
+  grid-column: 1 / -1; text-align: center; color: var(--azeler-gray);
+  background: #fff; border: 1px dashed #d9def0; border-radius: 16px; padding: 30px 20px;
+}
+
+/* =========================================================================
+   PAGE DE DÉTAIL D'UNE FICHE (fiche.html)
+   ========================================================================= */
+.fx-detail { max-width: 820px; }
+.fx-detail__resume { font-size: 1.15rem; color: var(--azeler-gray); }
+.fx-detail__content h2 { margin: 30px 0 10px; }
+.fx-detail__content ul, .fx-detail__content ol { color: var(--azeler-gray); }
+.fx-detail__content ul li strong, .fx-detail__content ol li strong { color: var(--azeler-ink); }
+.fx-detail__back { display: inline-block; margin-top: 8px; }
+.fx-detail__sources { margin-top: 30px; }
+.fx-detail__sources h2 { font-size: 1.2rem; margin: 0 0 10px; }
+.fx-detail__sources ul { margin: 0; padding-left: 1.15rem; }
+.fx-detail__sources li { margin-bottom: 8px; }
+.fx-detail__sources a { word-break: break-word; }

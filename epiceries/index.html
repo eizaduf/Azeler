@@ -12,6 +12,7 @@
   <!-- Leaflet (carte OpenStreetMap, CDN gratuit sans clé) — page épiceries uniquement -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="../assets/css/pole.css"><!-- fiche de présentation de pôle -->
   <link rel="stylesheet" href="page.css">
 </head>
 <body data-base="../" data-page="epiceries">
@@ -28,6 +29,61 @@
   <section class="section">
     <div class="container">
       <!-- ================= ZONE DE TRAVAIL DU TERMINAL 4 ================= -->
+
+      <!-- ===== FICHE DE PRÉSENTATION DU PÔLE ===== -->
+      <div class="pole-intro">
+
+        <div class="pole-chapo">
+          <span class="badge">Pôle courses à petit prix</span>
+          <p class="lead">
+            <strong>Pour qui&nbsp;?</strong> Toi dont le budget alimentaire est serré.
+            <strong>Ce que tu trouves ici&nbsp;:</strong> une carte des épiceries sociales et solidaires près de chez toi,
+            pour faire tes courses à prix réduit (souvent 10 à 30&nbsp;% du prix normal), voire gratuitement.
+            <strong>Quand l'utiliser&nbsp;:</strong> pour t'organiser sur la durée — et vois la fiche «&nbsp;Aide alimentaire&nbsp;» si c'est urgent.
+          </p>
+        </div>
+
+        <div class="card pole-brief">
+          <h2 class="pole-block__title">✨ En bref</h2>
+          <ul class="pole-checks">
+            <li><strong>Épiceries solidaires&nbsp;:</strong> tu ne payes qu'une petite partie du prix et tu choisis tes produits.</li>
+            <li><strong>Anti-gaspi / déstockage&nbsp;:</strong> produits proches de la date, prix cassés, souvent ouverts à tous.</li>
+            <li>L'accès aux épiceries <em>sociales</em> passe souvent par un travailleur social (CCAS, Mission locale).</li>
+            <li>Recherche par ville ou code postal, puis filtre par type d'épicerie.</li>
+          </ul>
+        </div>
+
+        <div class="card pole-how">
+          <h2 class="pole-block__title">🧭 Comment procéder</h2>
+          <ol class="pole-steps">
+            <li>Tape ta ville ou ton code postal, puis repère les épiceries sur la carte.</li>
+            <li>Ouvre une fiche pour voir horaires, adresse et conditions d'accès.</li>
+            <li>Besoin d'une orientation&nbsp;? Prends rendez-vous au CCAS ou à la Mission locale.</li>
+            <li>Si c'est urgent aujourd'hui, dépanne-toi via la fiche «&nbsp;Aide alimentaire&nbsp;».</li>
+          </ol>
+        </div>
+
+        <div class="grid grid--2 pole-cols">
+          <div class="conseil-box">
+            <h3 class="pole-block__title">💡 Bon à savoir</h3>
+            <p class="mb-0">Pour une épicerie <strong>sociale</strong>, une orientation par un travailleur social
+              (CCAS, assistant·e social·e, Mission locale) est souvent demandée&nbsp;: on y calcule ton «&nbsp;reste à vivre&nbsp;».
+              Les épiceries <strong>anti-gaspi</strong>, elles, sont généralement ouvertes à tous, sans condition.</p>
+          </div>
+          <div class="card pole-further">
+            <h3 class="pole-block__title">🔗 Pour aller plus loin</h3>
+            <div class="pole-links">
+              <a class="pole-link pole-link--out" href="https://soliguide.fr/" target="_blank" rel="noopener">soliguide.fr</a>
+              <a class="pole-link pole-link--out" href="https://www.restosducoeur.org/" target="_blank" rel="noopener">Restos du Cœur</a>
+              <a class="pole-link pole-link--out" href="https://www.banquealimentaire.org/" target="_blank" rel="noopener">Banques Alimentaires</a>
+              <a class="pole-link" href="../fiches/aide-alimentaire.html">Fiche Aide alimentaire</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ===== fin fiche de présentation ===== -->
+
       <p class="lead">Cherche une épicerie sociale par ville ou code postal, repère-la sur la carte,
         et retrouve toutes les infos pratiques juste en dessous.</p>
 

@@ -27,8 +27,7 @@
 
   var links = [
     { id: 'se-lancer',   href: 'se-lancer/index.html',    label: 'Se lancer' },
-    { id: 'infos-ase',   href: 'infos-ase/index.html',    label: 'Infos ASE' },
-    { id: 'fiches',      href: 'fiches/index.html',       label: 'Fiches pratiques' },
+    { id: 'fiches',      href: 'fiches/index.html',       label: 'Infos & fiches' },
     { id: 'associations',href: 'associations/index.html', label: 'Associations' },
     { id: 'epiceries',   href: 'epiceries/index.html',    label: 'Épiceries' },
     { id: 'kit-hygiene', href: 'kit-hygiene/index.html',  label: 'Kit hygiène', cta: true }

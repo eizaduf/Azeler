@@ -1,0 +1,98 @@
+/* =========================================================================
+   AZELER — « Fiche de présentation de pôle » (composant partagé)
+   -------------------------------------------------------------------------
+   Fichier AJOUTÉ (ne modifie pas le design-system gelé). À charger APRÈS
+   design-system.css sur chaque page index de pôle :
+     <link rel="stylesheet" href="../assets/css/pole.css">  (ou "assets/…" à la racine)
+   Réutilise les jetons/couleurs de la charte et complète .card / .conseil-box.
+   ========================================================================= */
+
+/* Conteneur de la fiche de présentation, posé en haut du contenu du pôle */
+.pole-intro { margin: 0 0 44px; }
+.pole-intro > * + * { margin-top: 22px; }
+
+/* --- Chapô : à qui ça s'adresse, ce qu'on y trouve, quand l'utiliser --- */
+.pole-chapo { max-width: 760px; }
+.pole-chapo .lead { margin: 12px 0 0; }
+
+/* --- Titres internes des blocs (avec pastille emoji) --- */
+.pole-block__title { margin: 0 0 14px; font-size: 1.3rem; }
+.pole-intro .conseil-box .pole-block__title,
+.pole-intro .danger-box .pole-block__title { font-size: 1.15rem; }
+
+/* --- Liste « En bref » : puces check maison (cohérent avec le reste du site) --- */
+.pole-checks { list-style: none; margin: 0; padding: 0; }
+.pole-checks li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+.pole-checks li:last-child { margin-bottom: 0; }
+.pole-checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0; top: 0;
+  width: 20px; height: 20px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--azeler-blue-soft);
+  color: var(--azeler-blue);
+  border-radius: 50%;
+  font-size: .8rem; font-weight: 800;
+}
+
+/* --- Pas-à-pas « Comment procéder » : numéros en pastille --- */
+.pole-steps {
+  list-style: none;
+  margin: 0; padding: 0;
+  counter-reset: pole-step;
+}
+.pole-steps li {
+  position: relative;
+  padding-left: 44px;
+  margin-bottom: 14px;
+  line-height: 1.45;
+  min-height: 30px;
+  display: flex; align-items: center;
+}
+.pole-steps li:last-child { margin-bottom: 0; }
+.pole-steps li::before {
+  counter-increment: pole-step;
+  content: counter(pole-step);
+  position: absolute;
+  left: 0; top: 0;
+  width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--azeler-blue);
+  color: #fff;
+  border-radius: 50%;
+  font-family: var(--font-logo);
+  font-size: 1rem; line-height: 1;
+}
+
+/* --- Deux colonnes « Bon à savoir » + « Pour aller plus loin » --- */
+.pole-cols { align-items: stretch; }
+.pole-cols > * { margin: 0; }
+
+/* --- « Pour aller plus loin » : liens en pastilles --- */
+.pole-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.pole-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--azeler-blue-soft);
+  color: var(--azeler-blue-dark);
+  font-weight: 700; font-size: .9rem;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  transition: background .2s ease, transform .12s ease, color .2s ease;
+}
+.pole-link:hover { background: var(--azeler-blue); color: #fff; transform: translateY(-1px); }
+.pole-link--out::after { content: "↗"; font-size: .85em; opacity: .7; }
+
+/* Le bloc « Pour aller plus loin » reste une carte sobre */
+.pole-further { display: flex; flex-direction: column; }
+.pole-further .pole-links { margin-top: auto; }
+
+@media (max-width: 680px) {
+  .pole-intro > * + * { margin-top: 18px; }
+}

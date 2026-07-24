@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img"
+     aria-label="Illustration : des jeunes accompagné·es et orienté·es vers les bonnes infos">
+  <defs>
+    <style>
+      .blue   { fill:#5170ff; }
+      .blued  { fill:#3a54d6; }
+      .soft   { fill:#eef1ff; }
+      .coral  { fill:#FF5A6E; }
+      .slate  { fill:#464555; }
+      .white  { fill:#ffffff; }
+      .skin1  { fill:#f2c9a5; }
+      .skin2  { fill:#8d5a3c; }
+      .line   { fill:none; stroke:#3a54d6; stroke-width:6; stroke-linecap:round; }
+    </style>
+  </defs>
+
+  <!-- fond -->
+  <circle class="soft" cx="320" cy="220" r="200"/>
+  <circle class="blue" cx="320" cy="220" r="200" opacity="0.06"/>
+
+  <!-- cartes flottantes (les "espaces" du site) -->
+  <g>
+    <rect class="white" x="70"  y="70"  width="120" height="86" rx="16"/>
+    <rect class="blue"  x="86"  y="88"  width="34"  height="34" rx="8"/>
+    <rect class="soft"  x="132" y="92"  width="42"  height="9"  rx="4"/>
+    <rect class="soft"  x="132" y="108" width="30"  height="9"  rx="4"/>
+    <rect class="soft"  x="86"  y="134" width="88"  height="9"  rx="4"/>
+  </g>
+  <g>
+    <rect class="white" x="452" y="88" width="118" height="84" rx="16"/>
+    <circle class="coral" cx="484" cy="120" r="17"/>
+    <rect class="soft"  x="512" y="106" width="44" height="9" rx="4"/>
+    <rect class="soft"  x="512" y="122" width="34" height="9" rx="4"/>
+    <rect class="soft"  x="472" y="148" width="84" height="9" rx="4"/>
+  </g>
+
+  <!-- grand cœur = soutien -->
+  <path class="coral" d="M320 128c-11-24-52-24-52 8 0 24 34 44 52 58 18-14 52-34 52-58 0-32-41-32-52-8z" opacity="0.95"/>
+  <path class="white" d="M320 128c-11-24-52-24-52 8 0 24 34 44 52 58 18-14 52-34 52-58 0-32-41-32-52-8z" opacity="0.14"/>
+
+  <!-- sol -->
+  <rect class="blued" x="150" y="360" width="340" height="8" rx="4" opacity="0.25"/>
+
+  <!-- personnage 1 : salue -->
+  <g>
+    <rect class="blue"  x="212" y="300" width="70" height="82" rx="26"/>
+    <rect class="blued" x="222" y="366" width="20" height="34" rx="9"/>
+    <rect class="blued" x="252" y="366" width="20" height="34" rx="9"/>
+    <circle class="skin1" cx="247" cy="270" r="30"/>
+    <path class="slate" d="M219 262c2-24 54-24 56 0 4 8-4 10-8 6-6-8-34-8-40 0-4 4-11 2-8-6z"/>
+    <!-- bras qui salue -->
+    <path class="line" d="M275 318 q34 -6 40 -40"/>
+    <circle class="skin1" cx="318" cy="272" r="11"/>
+  </g>
+
+  <!-- personnage 2 : assis, tablette -->
+  <g>
+    <rect class="coral" x="360" y="308" width="66" height="74" rx="24"/>
+    <rect class="slate" x="368" y="366" width="20" height="30" rx="9"/>
+    <rect class="slate" x="398" y="366" width="20" height="30" rx="9"/>
+    <circle class="skin2" cx="393" cy="282" r="28"/>
+    <path class="slate" d="M367 276c0-30 52-30 52 0 0 6-6 8-10 4-2-16-30-16-32 0-4 4-10 2-10-4z"/>
+    <rect class="white" x="374" y="322" width="40" height="28" rx="6"/>
+    <rect class="blue"  x="380" y="328" width="28" height="6" rx="3"/>
+    <rect class="soft"  x="380" y="340" width="20" height="5" rx="2"/>
+  </g>
+
+  <!-- pin d'orientation -->
+  <g transform="translate(150 208)">
+    <path class="blue" d="M28 0C13 0 0 12 0 28c0 22 28 46 28 46s28-24 28-46C56 12 43 0 28 0z"/>
+    <circle class="white" cx="28" cy="27" r="12"/>
+  </g>
+
+  <!-- petites étincelles -->
+  <circle class="coral" cx="118" cy="210" r="6"/>
+  <circle class="blue"  cx="520" cy="250" r="7"/>
+  <circle class="blued" cx="470" cy="330" r="5"/>
+</svg>
