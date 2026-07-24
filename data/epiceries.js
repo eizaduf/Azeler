@@ -167,5 +167,37 @@ window.AZELER_EPICERIES = [
     telephone: "01 47 70 11 17",
     lat: 48.8740833,
     lng: 2.3480437
+  },
+
+  /* ------------------------- DÉSTOCKAGE / PRIX CASSÉS (ouverts à tous) -- */
+  {
+    nom: "Charlie's Market — supermarché discount",
+    adresse: "19 rue de Ménilmontant",
+    ville: "Paris",
+    codePostal: "75020",
+    horaires: "Lun-Sam 8h30-20h, Dim 9h30-12h30 — déstockage, prix cassés",
+    telephone: "01 43 61 87 30",
+    lat: 48.8674778,
+    lng: 2.3845304
+  },
+  {
+    nom: "O'Circus — déstockage alimentaire",
+    adresse: "39 route de Noisy",
+    ville: "Villemomble",
+    codePostal: "93250",
+    horaires: "Invendus et fins de série à prix cassés — ouvert à tous",
+    telephone: "",
+    lat: 48.8830056,
+    lng: 2.4960912
+  },
+  {
+    nom: "Espace Saint-Denis Primeur — fruits & légumes discount",
+    adresse: "3 rue Claude Debussy",
+    ville: "Épinay-sur-Seine",
+    codePostal: "93800",
+    horaires: "Fruits et légumes à prix cassés — ouvert à tous",
+    telephone: "",
+    lat: 48.9469771,
+    lng: 2.3427207
   }
 ];
