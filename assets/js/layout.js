@@ -14,6 +14,17 @@
   var base = document.body.getAttribute('data-base') || '';
   var current = document.body.getAttribute('data-page') || '';
 
+  // --- Favicon (injecté sur toutes les pages) ---
+  var head = document.head;
+  if (head && !head.querySelector('link[rel="icon"]')) {
+    var ic = document.createElement('link');
+    ic.rel = 'icon'; ic.type = 'image/png'; ic.href = base + 'assets/img/favicon.png';
+    head.appendChild(ic);
+    var at = document.createElement('link');
+    at.rel = 'apple-touch-icon'; at.href = base + 'assets/img/apple-touch-icon.png';
+    head.appendChild(at);
+  }
+
   var links = [
     { id: 'se-lancer',   href: 'se-lancer/index.html',    label: 'Se lancer' },
     { id: 'infos-ase',   href: 'infos-ase/index.html',    label: 'Infos ASE' },

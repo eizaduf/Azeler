@@ -1,0 +1,17 @@
+/* « Quitter vite » — dispositif de sortie rapide pour les pages sensibles.
+   Rouge franc (≠ charte) pour être identifié comme un bouton de sécurité. */
+.quick-exit{
+  position:fixed; right:16px; bottom:16px; z-index:9999;
+  display:inline-flex; align-items:center; gap:8px;
+  background:#c81e3a; color:#fff; border:none; border-radius:999px;
+  font-family:'Nunito',sans-serif; font-weight:800; font-size:1rem;
+  padding:12px 20px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.28);
+}
+.quick-exit:hover,.quick-exit:focus{ background:#a5162e; outline:3px solid rgba(200,30,58,.4); }
+.quick-exit__x{ font-size:1.15rem; line-height:1; }
+.quick-exit-note{
+  display:flex; align-items:flex-start; gap:8px;
+  background:#fdeaed; border:1px solid #f4c2ca; border-radius:12px;
+  padding:12px 16px; font-size:.94rem; color:#7a1226; margin-bottom:22px;
+}
+@media (max-width:520px){ .quick-exit{ right:12px; bottom:12px; padding:11px 16px; } }

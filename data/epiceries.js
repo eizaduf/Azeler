@@ -1,14 +1,11 @@
 /* =========================================================================
    AZELER — DONNÉES DES ÉPICERIES SOCIALES, SOLIDAIRES & ANTI-GASPI
-   Propriété du TERMINAL 4.
-   lat/lng = coordonnées GPS (pour la carte), relevées via Nominatim /
-   OpenStreetMap au niveau de l'adresse.
+   lat/lng = coordonnées GPS (relevées via Nominatim / OpenStreetMap).
+   type = "solidaire" | "anti-gaspi" | "destockage"  (sert aux filtres de la carte)
 
-   Deux familles de structures :
-   • Épiceries SOLIDAIRES / SOCIALES : accès sur critères sociaux (bon des
-     services sociaux, dossier), denrées de 10 % à 30 % de leur valeur.
-   • Épiceries ANTI-GASPI (réseau NOUS) : ouvertes à tous, invendus revalorisés
-     à prix réduits (jusqu'à -30 %), sans conditions de ressources.
+   • solidaire  : accès sur critères sociaux, denrées de 10 % à 30 % de leur valeur.
+   • anti-gaspi : ouvert à tous, invendus revalorisés (jusqu'à -30 %), sans conditions.
+   • destockage : ouvert à tous, prix cassés / fins de série.
 
    Coordonnées vérifiées en juillet 2026. Vérifie les horaires par téléphone
    avant de te déplacer, ils changent souvent.
@@ -18,6 +15,7 @@ window.AZELER_EPICERIES = [
   /* ------------------------- ÉPICERIES SOLIDAIRES / SOCIALES ------------ */
   {
     nom: "Épicerie solidaire SAWA",
+    type: "solidaire",
     adresse: "18 rue Tchaïkovski",
     ville: "Paris",
     codePostal: "75018",
@@ -28,6 +26,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "La Joyeuse Chapelle — épicerie solidaire",
+    type: "solidaire",
     adresse: "63 rue de la Chapelle",
     ville: "Paris",
     codePostal: "75018",
@@ -38,6 +37,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "La Joyeuse Chapelle — hygiène & vêtements",
+    type: "solidaire",
     adresse: "80 rue de la Chapelle",
     ville: "Paris",
     codePostal: "75018",
@@ -48,6 +48,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "Libre Service Solidaire (Secours populaire 75)",
+    type: "solidaire",
     adresse: "142 boulevard Vincent Auriol",
     ville: "Paris",
     codePostal: "75013",
@@ -58,6 +59,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "Libre Service Solidaire (Secours populaire 75)",
+    type: "solidaire",
     adresse: "10 rue Montcalm",
     ville: "Paris",
     codePostal: "75018",
@@ -68,6 +70,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "Épicerie solidaire de Crimée",
+    type: "solidaire",
     adresse: "166 rue de Crimée",
     ville: "Paris",
     codePostal: "75019",
@@ -78,6 +81,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "AGORAé Paris (épicerie solidaire étudiante — AGEP/FAGE)",
+    type: "solidaire",
     adresse: "4 place Jussieu",
     ville: "Paris",
     codePostal: "75005",
@@ -88,6 +92,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "Épicerie sociale Epicéas — Aubervilliers Solidarité",
+    type: "solidaire",
     adresse: "29 rue de la Commune de Paris",
     ville: "Aubervilliers",
     codePostal: "93300",
@@ -98,6 +103,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "Épicerie solidaire Afana",
+    type: "solidaire",
     adresse: "44 boulevard Anatole France",
     ville: "Aubervilliers",
     codePostal: "93300",
@@ -106,10 +112,44 @@ window.AZELER_EPICERIES = [
     lat: 48.9183130,
     lng: 2.3832010
   },
+  {
+    nom: "Épicerie sociale et solidaire Wicasaya",
+    type: "solidaire",
+    adresse: "1 rue de la Ferme",
+    ville: "Bobigny",
+    codePostal: "93000",
+    horaires: "Aide alimentaire à prix réduit + ateliers — sur orientation",
+    telephone: "",
+    lat: 48.9106565,
+    lng: 2.4360029
+  },
+  {
+    nom: "Épicerie sociale et solidaire — Université Paris 8",
+    type: "solidaire",
+    adresse: "2 rue de la Liberté",
+    ville: "Saint-Denis",
+    codePostal: "93200",
+    horaires: "Mar et Jeu 12h-19h — sur dossier étudiant",
+    telephone: "01 49 40 71 88",
+    lat: 48.9441160,
+    lng: 2.3650530
+  },
+  {
+    nom: "AGORAé de Créteil (épicerie solidaire étudiante — FAGE/UPEC)",
+    type: "solidaire",
+    adresse: "61 avenue du Général de Gaulle",
+    ville: "Créteil",
+    codePostal: "94000",
+    horaires: "Sur dossier étudiant — produits à ~10 % du prix",
+    telephone: "",
+    lat: 48.7882159,
+    lng: 2.4439219
+  },
 
   /* ------------------------- ÉPICERIES ANTI-GASPI (réseau NOUS) --------- */
   {
     nom: "NOUS anti-gaspi — Clichy",
+    type: "anti-gaspi",
     adresse: "95 avenue de Clichy",
     ville: "Paris",
     codePostal: "75017",
@@ -120,6 +160,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "NOUS anti-gaspi — Jean Jaurès",
+    type: "anti-gaspi",
     adresse: "137 avenue Jean Jaurès",
     ville: "Paris",
     codePostal: "75019",
@@ -130,6 +171,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "NOUS anti-gaspi — Ledru Rollin",
+    type: "anti-gaspi",
     adresse: "79 avenue Ledru Rollin",
     ville: "Paris",
     codePostal: "75012",
@@ -140,6 +182,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "NOUS anti-gaspi — Montparnasse",
+    type: "anti-gaspi",
     adresse: "11 rue de l'Ouest",
     ville: "Paris",
     codePostal: "75014",
@@ -150,6 +193,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "NOUS anti-gaspi — Place des Fêtes",
+    type: "anti-gaspi",
     adresse: "64 rue du Pré Saint-Gervais",
     ville: "Paris",
     codePostal: "75019",
@@ -160,6 +204,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "NOUS anti-gaspi — Poissonnière",
+    type: "anti-gaspi",
     adresse: "44 rue du Faubourg Poissonnière",
     ville: "Paris",
     codePostal: "75010",
@@ -172,6 +217,7 @@ window.AZELER_EPICERIES = [
   /* ------------------------- DÉSTOCKAGE / PRIX CASSÉS (ouverts à tous) -- */
   {
     nom: "Charlie's Market — supermarché discount",
+    type: "destockage",
     adresse: "19 rue de Ménilmontant",
     ville: "Paris",
     codePostal: "75020",
@@ -182,6 +228,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "O'Circus — déstockage alimentaire",
+    type: "destockage",
     adresse: "39 route de Noisy",
     ville: "Villemomble",
     codePostal: "93250",
@@ -192,6 +239,7 @@ window.AZELER_EPICERIES = [
   },
   {
     nom: "Espace Saint-Denis Primeur — fruits & légumes discount",
+    type: "destockage",
     adresse: "3 rue Claude Debussy",
     ville: "Épinay-sur-Seine",
     codePostal: "93800",

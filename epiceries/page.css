@@ -30,6 +30,20 @@
   font-size: .95rem;
 }
 
+/* Filtres par type */
+.epi-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; }
+.epi-filter {
+  font-family: inherit; font-weight: 700; font-size: .95rem;
+  padding: 9px 16px; border-radius: 999px; cursor: pointer;
+  background: #fff; color: var(--azeler-ink, #464555);
+  border: 1.5px solid #d9def0; transition: background .15s, color .15s, border-color .15s;
+}
+.epi-filter:hover { border-color: var(--azeler-blue, #5170ff); }
+.epi-filter.is-active {
+  background: var(--azeler-blue, #5170ff); color: #fff;
+  border-color: var(--azeler-blue, #5170ff);
+}
+
 /* Carte Leaflet */
 .epi-map {
   height: 420px;

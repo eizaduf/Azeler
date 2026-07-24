@@ -13,6 +13,9 @@
   var mapEl = document.getElementById("epi-map");
   var fallbackEl = document.getElementById("epi-fallback");
 
+  var filtersEl = document.getElementById("epi-filters");
+  var currentType = "all";
+
   var map = null;
   var markers = [];      // { marker, item }
   var hasLeaflet = typeof window.L !== "undefined" && mapEl;
@@ -78,8 +81,9 @@
   // --- Filtre selon la recherche (ville OU code postal) ---------------------
   function filtrer(q) {
     q = (q || "").trim().toLowerCase();
-    if (!q) return DATA.slice();
     return DATA.filter(function (i) {
+      if (currentType !== "all" && i.type !== currentType) return false;
+      if (!q) return true;
       return (
         String(i.ville).toLowerCase().indexOf(q) !== -1 ||
         String(i.codePostal).toLowerCase().indexOf(q) !== -1 ||
@@ -153,5 +157,16 @@
   if (searchEl) {
     searchEl.addEventListener("input", appliquer);
     searchEl.addEventListener("keydown", function (e) { if (e.key === "Enter") e.preventDefault(); });
+  }
+  if (filtersEl) {
+    filtersEl.addEventListener("click", function (e) {
+      var btn = e.target.closest(".epi-filter");
+      if (!btn) return;
+      currentType = btn.getAttribute("data-type") || "all";
+      Array.prototype.forEach.call(filtersEl.querySelectorAll(".epi-filter"), function (b) {
+        b.classList.toggle("is-active", b === btn);
+      });
+      appliquer();
+    });
   }
 })();

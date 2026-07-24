@@ -38,6 +38,13 @@
         <span id="epi-count" class="epi-search__count" role="status" aria-live="polite"></span>
       </div>
 
+      <div id="epi-filters" class="epi-filters" role="group" aria-label="Filtrer par type d'épicerie">
+        <button type="button" class="epi-filter is-active" data-type="all">Toutes</button>
+        <button type="button" class="epi-filter" data-type="solidaire">🤝 Solidaires</button>
+        <button type="button" class="epi-filter" data-type="anti-gaspi">♻️ Anti-gaspi</button>
+        <button type="button" class="epi-filter" data-type="destockage">🏷️ Déstockage</button>
+      </div>
+
       <!-- Message de secours si la carte ne charge pas -->
       <div id="epi-fallback" class="epi-fallback" style="display:none">
         La carte n'a pas pu se charger (connexion ou blocage réseau).
