@@ -68,11 +68,13 @@ h3 { font-size: 1.25rem; font-weight: 800; }
   text-decoration: none;
   letter-spacing: 1px;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 .logo--blue { color: var(--azeler-blue); }
-.logo-img { height: 44px; width: auto; display: block; }
-.site-footer .logo-img { height: 54px; margin-bottom: 8px; }
-@media (max-width: 520px){ .logo-img { height: 38px; } }
+.logo-img { height: 40px; width: auto; display: block; }
+.site-footer .logo-img { height: 52px; margin-bottom: 8px; }
+@media (max-width: 520px){ .logo-img { height: 34px; } }
 .tagline { font-family: var(--font-logo); color: var(--azeler-white); opacity: .95; }
 
 /* ---- 4. Boutons ---- */
