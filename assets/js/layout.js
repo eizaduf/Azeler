@@ -25,6 +25,21 @@
     head.appendChild(at);
   }
 
+  // --- Pack animations (feuille + script, sur toutes les pages) ---
+  if (head && !head.querySelector('link[data-anim]')) {
+    var acss = document.createElement('link');
+    acss.rel = 'stylesheet';
+    acss.href = base + 'assets/css/anim.css';
+    acss.setAttribute('data-anim', '');
+    head.appendChild(acss);
+  }
+  if (!document.querySelector('script[data-anim]')) {
+    var ajs = document.createElement('script');
+    ajs.src = base + 'assets/js/anim.js';
+    ajs.setAttribute('data-anim', '');
+    document.body.appendChild(ajs);
+  }
+
   var links = [
     { id: 'se-lancer',   href: 'se-lancer/index.html',    label: 'Se lancer' },
     { id: 'fiches',      href: 'fiches/index.html',       label: 'Infos & fiches' },
