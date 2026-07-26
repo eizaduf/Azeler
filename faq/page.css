@@ -1,0 +1,58 @@
+/* =========================================================================
+   AZELER — FAQ (styles propres à la page, design-system.css reste gelé)
+   ========================================================================= */
+
+/* Sommaire / navigation interne */
+.faq-toc { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+/* Accordéon natif <details>/<summary> — aucun JS */
+.faq-item {
+  background: #fff;
+  border: 1px solid #eef0f6;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: box-shadow .2s ease;
+}
+.faq-item[open] { box-shadow: var(--shadow-strong); }
+
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  font-weight: 800;
+  color: var(--azeler-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+
+/* Chevron */
+.faq-item > summary::after {
+  content: "+";
+  font-family: var(--font-logo);
+  font-size: 1.6rem;
+  color: var(--azeler-blue);
+  line-height: 1;
+  flex: 0 0 auto;
+  transition: transform .2s ease;
+}
+.faq-item[open] > summary::after { content: "–"; }
+.faq-item > summary:hover { color: var(--azeler-blue); }
+
+.faq-item__body {
+  padding: 0 22px 20px;
+  color: var(--azeler-gray);
+}
+.faq-item__body p { margin: 0; }
+
+/* Ancre sous en-tête collant */
+.faq-anchor { scroll-margin-top: 84px; }
+
+@media (max-width: 520px) {
+  .faq-item > summary { padding: 15px 16px; }
+  .faq-item__body { padding: 0 16px 16px; }
+}

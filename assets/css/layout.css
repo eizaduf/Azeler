@@ -1,0 +1,303 @@
+/* =========================================================================
+   AZELER — EN-TÊTE, PIED DE PAGE, FIL D'ARIANE & BLOC « VOIR AUSSI »
+   -------------------------------------------------------------------------
+   Feuille de style dédiée au layout commun, injectée sur TOUTES les pages
+   par assets/js/layout.js (elle se charge après design-system.css et
+   peut donc l'affiner). Elle n'écrase pas design-system.css : elle utilise
+   ses variables --azeler-* et n'ajoute que des classes préfixées « az- ».
+
+   Mobile-first, sans dépendance externe, accessible (contraste, focus, aria).
+   ========================================================================= */
+
+/* ------------------------------------------------------------------ */
+/* 1. EN-TÊTE (header) — sticky, ombre au scroll, menu accessible      */
+/* ------------------------------------------------------------------ */
+.az-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--azeler-blue);
+  color: #fff;
+  transition: box-shadow .2s ease;
+}
+/* Ombre légère qui n'apparaît qu'une fois la page défilée (classe posée en JS) */
+.az-header.is-scrolled { box-shadow: 0 6px 22px rgba(28, 35, 64, .22); }
+
+.az-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Logo : jamais rogné (hauteur fixe + marge autour), cliquable vers l'accueil */
+.az-brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  margin: -4px;
+  border-radius: 12px;
+  flex: 0 0 auto;
+}
+.az-brand img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+/* Navigation des rubriques */
+.az-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.az-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .95rem;
+  line-height: 1;
+  padding: 9px 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background .18s ease, color .18s ease;
+}
+.az-nav a:hover { background: rgba(255, 255, 255, .18); }
+/* Onglet courant bien mis en évidence */
+.az-nav a[aria-current="page"] {
+  background: #fff;
+  color: var(--azeler-blue);
+}
+/* Bouton d'appel à l'action (Kit hygiène) */
+.az-nav a.az-nav__cta {
+  background: var(--azeler-accent);
+  color: #fff;
+  padding: 9px 16px;
+}
+.az-nav a.az-nav__cta:hover { background: var(--azeler-accent-dark); }
+.az-nav a.az-nav__cta[aria-current="page"] {
+  background: #fff;
+  color: var(--azeler-accent-dark);
+  box-shadow: inset 0 0 0 2px var(--azeler-accent);
+}
+
+/* Bouton burger (mobile uniquement) */
+.az-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.az-burger:hover { background: rgba(255, 255, 255, .26); }
+.az-burger__bars, .az-burger__bars::before, .az-burger__bars::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.az-burger__bars { position: relative; }
+.az-burger__bars::before { position: absolute; top: -7px; left: 0; }
+.az-burger__bars::after  { position: absolute; top:  7px; left: 0; }
+/* Croix quand le menu est ouvert */
+.az-header.nav-open .az-burger__bars { background: transparent; }
+.az-header.nav-open .az-burger__bars::before { transform: translateY(7px) rotate(45deg); }
+.az-header.nav-open .az-burger__bars::after  { transform: translateY(-7px) rotate(-45deg); }
+
+/* Focus visible clavier (accessibilité) */
+.az-header a:focus-visible,
+.az-burger:focus-visible,
+.az-footer a:focus-visible,
+.az-related a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.az-footer a:focus-visible,
+.az-related a:focus-visible { outline-color: var(--azeler-blue); }
+
+/* --- Bascule mobile : le menu devient un panneau déroulant --- */
+@media (max-width: 860px) {
+  .az-burger { display: inline-flex; }
+  .az-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    background: var(--azeler-blue);
+    padding: 10px 16px 16px;
+    box-shadow: 0 14px 26px rgba(28, 35, 64, .25);
+    /* Ouverture sans saut de mise en page : on joue sur l'opacité/visibilité */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s;
+  }
+  .az-nav a { padding: 12px 14px; }
+  .az-nav a.az-nav__cta { text-align: center; }
+  .az-header.nav-open .az-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 861px) {
+  /* Sécurité : le panneau reste toujours visible en desktop */
+  .az-nav { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. FIL D'ARIANE (breadcrumb) — uniforme sur toutes les pages         */
+/* ------------------------------------------------------------------ */
+.breadcrumb, .az-breadcrumb {
+  font-size: .9rem;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, .9);
+}
+.az-breadcrumb a { color: #fff; text-decoration: none; opacity: .9; }
+.az-breadcrumb a:hover { opacity: 1; text-decoration: underline; }
+.az-breadcrumb .az-breadcrumb__sep { margin: 0 .45em; opacity: .55; }
+.az-breadcrumb [aria-current="page"] { font-weight: 700; opacity: 1; }
+
+/* ------------------------------------------------------------------ */
+/* 3. BLOC « VOIR AUSSI » — liens croisés réutilisables                 */
+/* ------------------------------------------------------------------ */
+.az-related {
+  background: var(--azeler-blue-soft);
+  border-top: 1px solid #e2e6f6;
+  padding: 40px 0;
+}
+.az-related__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  font-size: 1.25rem;
+}
+.az-related__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.az-related__card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e6e9f5;
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--azeler-ink);
+  font-weight: 700;
+  transition: transform .14s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.az-related__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: var(--azeler-blue);
+}
+.az-related__ico { font-size: 1.5rem; line-height: 1; flex: 0 0 auto; }
+.az-related__arrow { margin-left: auto; color: var(--azeler-blue); font-weight: 800; }
+@media (max-width: 780px) { .az-related__grid { grid-template-columns: 1fr; } }
+
+/* ------------------------------------------------------------------ */
+/* 4. PIED DE PAGE (footer) — 4 colonnes responsive                     */
+/* ------------------------------------------------------------------ */
+.az-footer {
+  background: var(--azeler-slate);
+  color: #d6d8e2;
+  padding: 46px 0 22px;
+}
+.az-footer a { color: #fff; }
+.az-footer h3 {
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin: 0 0 14px;
+}
+.az-footer__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.3fr 1.1fr;
+  gap: 30px;
+}
+.az-footer__brand img { height: 50px; width: auto; margin-bottom: 10px; }
+.az-footer__tagline {
+  font-family: var(--font-logo);
+  color: #fff;
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+}
+.az-footer__mission { font-size: .95rem; line-height: 1.55; margin: 0; }
+
+/* Liste de liens « Le site » */
+.az-footer__links { list-style: none; margin: 0; padding: 0; }
+.az-footer__links li { margin-bottom: 8px; }
+.az-footer__links a { text-decoration: none; opacity: .92; }
+.az-footer__links a:hover { opacity: 1; text-decoration: underline; }
+
+/* Numéros d'urgence bien visibles */
+.az-footer__urgence { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.az-urg {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  background: rgba(255, 255, 255, .07);
+  border-radius: 10px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #fff;
+}
+.az-urg:hover { background: rgba(255, 255, 255, .15); }
+.az-urg__num { font-family: var(--font-logo); font-size: 1.35rem; line-height: 1; flex: 0 0 auto; }
+.az-urg__lbl { font-size: .82rem; color: #d6d8e2; }
+
+.az-footer__partner { font-size: .9rem; line-height: 1.5; }
+.az-footer__copy { font-family: var(--font-logo); color: #fff; font-size: 1.1rem; margin-top: 12px; }
+
+/* Barre du bas : rappel sécurité + mentions légales */
+.az-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  margin-top: 30px;
+  padding-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .85rem;
+  color: #b9bccd;
+}
+.az-footer__bottom a { color: #fff; text-decoration: underline; }
+.az-footer__security strong { color: #fff; }
+
+@media (max-width: 900px) {
+  .az-footer__grid { grid-template-columns: 1fr 1fr; gap: 26px; }
+}
+@media (max-width: 560px) {
+  .az-footer__grid { grid-template-columns: 1fr; }
+  .az-footer__bottom { justify-content: flex-start; }
+}
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  .az-nav, .az-burger__bars, .az-burger__bars::before, .az-burger__bars::after,
+  .az-related__card, .az-header { transition: none; }
+}

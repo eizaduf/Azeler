@@ -1,0 +1,148 @@
+/* =========================================================================
+   AZELER — COUCHE « MODERNE » (additive, chargée APRÈS design-system.css)
+   -------------------------------------------------------------------------
+   NE MODIFIE PAS design-system.css (gelé). Cette feuille ne fait qu'AFFINER :
+     1. Contraste (WCAG 2.2 AA) : liens + surfaces corail
+     2. Police d'affichage pour les titres (caractère)
+     3. Hero + CTA en dégradé (profondeur, modernité)
+     4. Fond de page légèrement teinté (chaleur)
+     5. Finitions : ombres en couches, rayons harmonisés, boutons
+   Chargée globalement par assets/js/layout.js sur TOUTES les pages.
+   ========================================================================= */
+
+/* La police d'affichage doit être importée en tout début de feuille */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap');
+
+/* -------------------------------------------------------------------------
+   1. CONTRASTE — corrections d'accessibilité (WCAG AA)
+   ------------------------------------------------------------------------- */
+:root {
+  /* Bleu de lien lisible sur blanc : 6,2:1 (le bleu de marque #5170ff = 4,1:1) */
+  --azeler-link: var(--azeler-blue-dark);
+  /* Corail « profond » pour surfaces portant du texte blanc : 5,2:1 */
+  --azeler-red-ink: #cf2740;
+  --azeler-red-ink-dark: #b81f36;
+  /* Ombre douce en deux couches (plus moderne qu'une ombre unique) */
+  --shadow-soft: 0 4px 14px rgba(28, 35, 64, .06), 0 14px 34px rgba(28, 35, 64, .09);
+}
+
+/* Liens en corps de texte : bleu foncé + soulignement discret (lève l'exigence
+   de contraste par la couleur seule, et améliore le repérage) */
+p a,
+li a,
+.lead a,
+.conseil-box a,
+.card__text a,
+.fiche-sources a,
+.pole-chapo a {
+  color: var(--azeler-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Boutons corail : fond plus profond → texte blanc enfin lisible (5,2:1) */
+.btn--accent,
+.btn--red { background: var(--azeler-red-ink); }
+.btn--accent:hover,
+.btn--red:hover { background: var(--azeler-red-ink-dark); }
+
+/* CTA « Kit hygiène » dans la navigation */
+.az-nav a.az-nav__cta { background: var(--azeler-red-ink); }
+.az-nav a.az-nav__cta:hover { background: var(--azeler-red-ink-dark); }
+
+/* Bandeau d'urgence : le fond corail devient assez profond pour que les petits
+   libellés blancs (.82rem) passent WCAG AA */
+.urgence { background: var(--azeler-red-ink); }
+
+/* Boutons bleus primaires : bleu un peu plus profond → texte blanc à 5,4:1
+   (le bleu de marque #5170ff n'était qu'à 4,1:1) */
+.btn--primary { background: #3f5be8; }
+.btn--primary:hover { background: #3550c9; }
+
+/* Textes bleus sur surfaces claires (petits) : passer au bleu foncé lisible */
+.btn--ghost { color: var(--azeler-blue-dark); border-color: var(--azeler-blue-dark); }
+.btn--white { color: var(--azeler-blue-dark); }
+.badge { color: var(--azeler-blue-dark); }              /* .8rem sur fond bleu très clair */
+.az-nav a[aria-current="page"] { color: var(--azeler-blue-dark); }
+
+/* -------------------------------------------------------------------------
+   2. TYPOGRAPHIE — une police d'affichage arrondie pour les titres
+   (garde Nunito en corps, Chewy en accent de marque : trio cohérent)
+   ------------------------------------------------------------------------- */
+h1, h2,
+.page-hero h1,
+.card__title,
+.faq-item > summary,
+.pole-block__title,
+.az-related__title,
+.cta-final h2 {
+  font-family: 'Baloo 2', var(--font-body);
+  letter-spacing: -0.01em;
+}
+/* Baloo 2 « pèse » plus optiquement : on peut redescendre le poids max */
+h1 { font-weight: 700; }
+h2 { font-weight: 700; }
+
+/* -------------------------------------------------------------------------
+   3. HERO + CTA — dégradés (profondeur, et le texte blanc gagne en contraste
+   car le bas du dégradé est plus foncé)
+   ------------------------------------------------------------------------- */
+.page-hero {
+  background: radial-gradient(125% 125% at 18% 0%,
+              #6a86ff 0%, var(--azeler-blue) 46%, #3f5be8 100%);
+}
+.cta-final {
+  background: linear-gradient(135deg, var(--azeler-blue) 0%, #3f5be8 100%) !important;
+}
+
+/* -------------------------------------------------------------------------
+   4. FOND DE PAGE — blanc cassé « cool » (les cartes blanches ressortent mieux)
+   ------------------------------------------------------------------------- */
+body { background: #FAFBFF; }
+
+/* -------------------------------------------------------------------------
+   5. FINITIONS — ombres en couches, rayons harmonisés, relief des boutons
+   ------------------------------------------------------------------------- */
+.card { box-shadow: var(--shadow-soft); }
+.card:hover { box-shadow: 0 10px 24px rgba(28, 35, 64, .10), 0 22px 48px rgba(28, 35, 64, .14); }
+
+/* Rayons : on rapproche les valeurs éparses (12/14px) du rythme de la charte */
+.az-related__card { border-radius: 16px; }
+.conseil-box,
+.urgence__item { border-radius: 14px; }
+
+/* Boutons : un léger relief au repos, plus « tactile » */
+.btn { box-shadow: 0 2px 8px rgba(28, 35, 64, .10); }
+.btn--white { box-shadow: 0 6px 18px rgba(28, 35, 64, .16); }
+.btn--ghost { box-shadow: none; }
+
+/* Respect du mouvement réduit : rien de nouveau à couper ici (transitions
+   déjà gérées par anim.css), mais on garde la cohérence */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover { box-shadow: var(--shadow-soft); }
+}
+
+/* -------------------------------------------------------------------------
+   6. ICÔNES SVG — remplacent les emoji (injectées par layout.js)
+   Le SVG est appliqué en masque coloré par currentColor : l'icône prend donc
+   la couleur du texte de son conteneur (blanc sur le hero, bleu sur les cartes).
+   ------------------------------------------------------------------------- */
+.az-ico {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: var(--ico) center / contain no-repeat;
+          mask: var(--ico) center / contain no-repeat;
+  vertical-align: -0.14em;
+  flex: 0 0 auto;
+}
+/* Icônes des grandes cartes : en bleu de marque, bien visibles */
+.card__icon { color: var(--azeler-blue); line-height: 1; }
+.card__icon .az-ico { width: 1em; height: 1em; }
+/* Carte « Kit hygiène » (action forte) : icône corail */
+.card__icon.card__icon--accent { color: var(--azeler-red-ink); }
+/* Icônes du bloc « Voir aussi » et des chips du hero suivent leur couleur locale */
+.az-related__ico { color: var(--azeler-blue); }
+.hero-chip .az-ico { vertical-align: -0.12em; margin-right: 2px; }
