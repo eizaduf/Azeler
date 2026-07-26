@@ -19,9 +19,11 @@
 :root {
   /* Bleu de lien lisible sur blanc : 6,2:1 (le bleu de marque #5170ff = 4,1:1) */
   --azeler-link: var(--azeler-blue-dark);
-  /* Corail « profond » pour surfaces portant du texte blanc : 5,2:1 */
-  --azeler-red-ink: #cf2740;
-  --azeler-red-ink-dark: #b81f36;
+  /* Rouge de MARQUE (cohérent avec le logo) — choix esthétique assumé.
+     NB : contraste blanc/rouge ~3,2:1 (sous WCAG AA pour petit texte) ;
+     compensé par des labels en gras. Priorité donnée à la cohérence de marque. */
+  --azeler-red-ink: var(--azeler-red);
+  --azeler-red-ink-dark: var(--azeler-red-dark);
   /* Ombre douce en deux couches (plus moderne qu'une ombre unique) */
   --shadow-soft: 0 4px 14px rgba(28, 35, 64, .06), 0 14px 34px rgba(28, 35, 64, .09);
 }
@@ -101,6 +103,12 @@ h2 { font-weight: 700; }
    ------------------------------------------------------------------------- */
 body { background: #FAFBFF; }
 
+/* Logo de l'en-tête : lui garantir de la place (les jambages du logo Chewy
+   étaient rognés dans un en-tête trop ajusté) + jamais de rognage. */
+.az-header, .site-header { overflow: visible; }
+.az-header__inner { min-height: 74px; }
+.az-brand img, .logo-img { height: 40px; }
+
 /* -------------------------------------------------------------------------
    5. FINITIONS — ombres en couches, rayons harmonisés, relief des boutons
    ------------------------------------------------------------------------- */
@@ -145,6 +153,25 @@ body { background: #FAFBFF; }
 .card__icon.card__icon--accent { color: var(--azeler-red-ink); }
 /* Icônes du bloc « Voir aussi » et des chips du hero suivent leur couleur locale */
 .az-related__ico { color: var(--azeler-blue); }
+
+/* -------------------------------------------------------------------------
+   7. TRANSITIONS DOUCES ENTRE SECTIONS
+   Les bandes colorées reçoivent un léger arrondi en haut (et en bas quand
+   c'est pertinent) pour prolonger l'esprit de la vague du hero sur tout le
+   site, au lieu de coupures droites.
+   ------------------------------------------------------------------------- */
+.section--soft,
+.az-related,
+.az-footer {
+  border-top-left-radius: 34px;
+  border-top-right-radius: 34px;
+}
+/* La section douce enchaîne souvent sur du blanc : on adoucit aussi le bas */
+.section--soft {
+  border-bottom-left-radius: 34px;
+  border-bottom-right-radius: 34px;
+}
+
 /* Icône en tête d'un titre/texte inline : un petit espace avant le mot */
 .hero-chip .az-ico,
 .pole-block__title .az-ico,

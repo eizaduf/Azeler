@@ -1,0 +1,79 @@
+/* =========================================================================
+   AZELER — Page « Nous contacter » (formulaire simulé)
+   Réutilise les jetons de design-system.css. N'affecte que cette page.
+   ========================================================================= */
+
+#contact-form { display: block; }
+
+.ct-field { margin-bottom: 22px; }
+.ct-field:last-of-type { margin-bottom: 0; }
+
+.ct-legend, .ct-label {
+  font-weight: 800;
+  color: var(--azeler-ink);
+  font-size: 1.05rem;
+}
+.ct-hint { color: var(--azeler-gray); font-size: .92rem; margin: 4px 0 0; }
+.ct-req { color: var(--azeler-red); }
+
+/* Cases à cocher « thématiques » sous forme de pastilles cliquables */
+.ct-checks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.ct-check { cursor: pointer; }
+.ct-checks .ct-check input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.ct-checks .ct-check span {
+  display: inline-block;
+  padding: 9px 15px;
+  border: 2px solid #e6e9f5;
+  border-radius: 999px;
+  font-weight: 700; font-size: .95rem;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.ct-checks .ct-check input:checked + span {
+  background: var(--azeler-blue-soft);
+  border-color: var(--azeler-blue);
+  color: var(--azeler-blue-dark);
+}
+.ct-checks .ct-check input:focus-visible + span {
+  outline: 3px solid var(--azeler-blue);
+  outline-offset: 2px;
+}
+
+/* Champs texte */
+.ct-input {
+  display: block; width: 100%;
+  margin-top: 8px;
+  padding: 12px 14px;
+  border: 2px solid #e6e9f5;
+  border-radius: 14px;
+  font-family: var(--font-body); font-size: 1rem;
+  color: var(--azeler-ink);
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.ct-input::placeholder { color: #9aa0b4; }
+.ct-input:focus {
+  outline: none;
+  border-color: var(--azeler-blue);
+  box-shadow: 0 0 0 4px rgba(81, 112, 255, .12);
+}
+textarea.ct-input { resize: vertical; min-height: 110px; }
+
+/* Deux colonnes prénom / contact */
+.ct-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 560px) { .ct-row { grid-template-columns: 1fr; } }
+
+/* Consentement RGPD */
+.ct-consent {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-top: 22px;
+  font-size: .95rem; color: var(--azeler-gray); cursor: pointer;
+}
+.ct-consent input { margin-top: 3px; width: 18px; height: 18px; flex: 0 0 auto; accent-color: var(--azeler-blue); }
+
+.ct-error { color: var(--azeler-red-dark); font-weight: 700; margin: 16px 0 0; }
+.ct-submit { margin-top: 22px; }
+.ct-note { color: var(--azeler-gray); font-size: .88rem; margin: 12px 0 0; }
+
+/* Confirmation */
+.ct-confirm { text-align: center; }
+.ct-confirm__text { color: var(--azeler-gray); max-width: 520px; margin: 6px auto 20px; }

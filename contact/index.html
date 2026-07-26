@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nous contacter — AZELER</title>
+  <meta name="description" content="Un souci de logement, d'argent, de santé… ? Explique-nous ta situation en quelques clics, on te recontacte.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body data-base="../" data-page="">
+
+  <header id="site-header"></header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Accueil</a> › Nous contacter</div>
+      <h1>Nous contacter</h1>
+      <p>Explique-nous ta situation en quelques clics. On te répond sans jugement, et c'est confidentiel.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:760px">
+
+      <!-- Rappel urgence -->
+      <div class="conseil-box mb-0" style="margin-bottom:26px">
+        <strong>En cas de danger immédiat</strong>, n'attends pas ce formulaire&nbsp;: appelle le
+        <a href="tel:119">119</a> (enfance en danger) ou le <a href="tel:15">15</a> (SAMU).
+        Sans hébergement ce soir&nbsp;? Le <a href="tel:115">115</a>.
+      </div>
+
+      <form id="contact-form" class="card" novalidate>
+
+        <!-- 1. Thématiques (cases à cocher) -->
+        <fieldset class="ct-field">
+          <legend class="ct-legend">Tu nous contactes pour…</legend>
+          <p class="ct-hint">Coche tout ce qui te concerne (tu peux en cocher plusieurs).</p>
+          <div class="ct-checks">
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Logement"><span>🏠 Logement</span></label>
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Argent / aides"><span>💶 Argent / aides</span></label>
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Alimentaire"><span>🍎 Alimentaire</span></label>
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Santé"><span>🩺 Santé</span></label>
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Emploi / formation"><span>💼 Emploi / formation</span></label>
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Droits / papiers"><span>⚖️ Droits / papiers</span></label>
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Sécurité / violences"><span>🛡️ Sécurité / violences</span></label>
+            <label class="ct-check"><input type="checkbox" name="sujets" value="Autre"><span>💬 Autre</span></label>
+          </div>
+        </fieldset>
+
+        <!-- 2. Message -->
+        <div class="ct-field">
+          <label class="ct-label" for="ct-message">Explique en quelques mots <span class="ct-req">*</span></label>
+          <textarea id="ct-message" name="message" class="ct-input" rows="5"
+                    placeholder="Raconte ta situation avec tes mots, même en deux lignes." required></textarea>
+        </div>
+
+        <!-- 3. Coordonnées -->
+        <div class="ct-row">
+          <div class="ct-field">
+            <label class="ct-label" for="ct-prenom">Ton prénom <span class="ct-req">*</span></label>
+            <input id="ct-prenom" name="prenom" class="ct-input" type="text" autocomplete="given-name"
+                   placeholder="Comment on t'appelle" required>
+          </div>
+          <div class="ct-field">
+            <label class="ct-label" for="ct-contact">Pour te recontacter <span class="ct-req">*</span></label>
+            <input id="ct-contact" name="contact" class="ct-input" type="text" autocomplete="email"
+                   placeholder="E-mail ou numéro de téléphone" required>
+          </div>
+        </div>
+
+        <!-- 4. Consentement -->
+        <label class="ct-check ct-consent">
+          <input type="checkbox" name="rgpd" required>
+          <span>J'accepte qu'AZELER utilise ces informations <strong>uniquement pour me recontacter</strong>.
+          Elles ne sont ni revendues, ni partagées. (<a href="../mentions.html">en savoir plus</a>)</span>
+        </label>
+
+        <p class="ct-error" id="ct-error" hidden>Merci de compléter les champs obligatoires (message, prénom, contact et consentement).</p>
+
+        <button class="btn btn--accent ct-submit" type="submit">Envoyer ma demande →</button>
+        <p class="ct-note">Réponse en général sous quelques jours. Rien n'est publié ni visible par d'autres.</p>
+      </form>
+
+      <!-- Confirmation (affichée après envoi) -->
+      <div class="card ct-confirm" id="contact-confirm" hidden>
+        <div class="card__icon" style="font-size:2.4rem">✅</div>
+        <h2 class="mt-0">Merci, c'est bien noté&nbsp;!</h2>
+        <p class="ct-confirm__text"></p>
+        <p><a class="btn btn--primary" href="../index.html">← Retour à l'accueil</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/layout.js"></script>
+  <script src="page.js"></script>
+</body>
+</html>

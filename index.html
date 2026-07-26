@@ -66,7 +66,7 @@
     .hero--home { position: relative; overflow: hidden; }
     .hero--home > .container { position: relative; z-index: 3; }
     .hero-blob { position: absolute; border-radius: 50%; z-index: 1; pointer-events: none; filter: blur(6px); }
-    .hero-blob--1 { width: 240px; height: 240px; background: #FF5A6E; opacity: .30; top: -60px; left: -50px; }
+    .hero-blob--1 { width: 240px; height: 240px; background: #FF5A6E; opacity: .30; top: 24px; left: -40px; }
     .hero-blob--2 { width: 320px; height: 320px; background: #8ea2ff; opacity: .40; bottom: -130px; right: -70px; }
     .hero-blob--3 { width: 140px; height: 140px; background: #fff; opacity: .13; top: 26px; right: 16%; }
     .hero-chip {
@@ -76,10 +76,13 @@
       border: 1px solid rgba(255,255,255,.28); font-size: .92rem; white-space: nowrap;
       box-shadow: 0 6px 18px rgba(0,0,0,.10);
     }
-    .hero-chip--a { top: 15%; left: 7%;  transform: rotate(-6deg); }
-    .hero-chip--b { top: 24%; right: 8%; transform: rotate(5deg); }
+    .hero-chip--a { top: 14%; left: 7%;  transform: rotate(-6deg); }
+    .hero-chip--b { top: 22%; right: 8%; transform: rotate(5deg); }
     .hero-chip--c { bottom: 26%; left: 10%; transform: rotate(4deg); }
     .hero-chip--d { bottom: 20%; right: 11%; transform: rotate(-5deg); }
+    .hero-chip--e { top: 47%; left: 4%;  transform: rotate(3deg); }
+    .hero-chip--f { top: 50%; right: 5%; transform: rotate(-4deg); }
+    .hero-chip__emo { margin-right: 3px; }
     .hero-wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 64px; display: block; z-index: 2; }
     @media (max-width: 960px){ .hero-chip { display: none; } }
 
@@ -119,10 +122,12 @@
     <span class="hero-blob hero-blob--1" aria-hidden="true"></span>
     <span class="hero-blob hero-blob--2" aria-hidden="true"></span>
     <span class="hero-blob hero-blob--3" aria-hidden="true"></span>
-    <span class="hero-chip hero-chip--a" aria-hidden="true">🏠 Logement</span>
-    <span class="hero-chip hero-chip--b" aria-hidden="true">🍎 Alimentaire</span>
-    <span class="hero-chip hero-chip--c" aria-hidden="true">💚 Soutien</span>
-    <span class="hero-chip hero-chip--d" aria-hidden="true">💼 Emploi</span>
+    <span class="hero-chip hero-chip--a" aria-hidden="true"><span class="hero-chip__emo">🏠</span> Logement</span>
+    <span class="hero-chip hero-chip--b" aria-hidden="true"><span class="hero-chip__emo">🍎</span> Alimentaire</span>
+    <span class="hero-chip hero-chip--c" aria-hidden="true"><span class="hero-chip__emo">💚</span> Soutien</span>
+    <span class="hero-chip hero-chip--d" aria-hidden="true"><span class="hero-chip__emo">💼</span> Emploi</span>
+    <span class="hero-chip hero-chip--e" aria-hidden="true"><span class="hero-chip__emo">🩺</span> Santé</span>
+    <span class="hero-chip hero-chip--f" aria-hidden="true"><span class="hero-chip__emo">💶</span> Argent</span>
     <div class="container text-center">
       <img src="assets/img/logo-azeler-full.png" alt="AZELER — Votre asso, vos infos !"
            style="width:min(440px,82%); height:auto; margin:0 auto 22px; display:block">
