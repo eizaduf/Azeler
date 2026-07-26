@@ -394,7 +394,8 @@
     '🚀': 'rocket', '📘': 'book-open', '📖': 'book-open', '📄': 'file-text',
     '🤝': 'handshake', '🛒': 'shopping-basket', '🧼': 'droplets', '🏠': 'house',
     '🍎': 'apple', '💚': 'heart', '❤': 'heart', '💼': 'briefcase',
-    '❓': 'circle-help', '🔗': 'link', '💡': 'lightbulb', '🆘': 'life-buoy', '🔒': 'lock'
+    '❓': 'circle-help', '🔗': 'link', '💡': 'lightbulb', '🆘': 'life-buoy', '🔒': 'lock',
+    '✨': 'sparkles', '🧭': 'compass'
   };
   function makeIco(name) {
     var s = document.createElement('span');
@@ -426,7 +427,8 @@
   [
     '.card__icon', '.hero-chip', '.az-related__ico',
     '.az-related__title > span[aria-hidden="true"]',
-    '.urgence h3', '.conseil-box strong', '.az-footer__security'
+    '.urgence h3', '.conseil-box strong', '.az-footer__security',
+    '.pole-block__title'
   ].forEach(function (sel) {
     Array.prototype.forEach.call(document.querySelectorAll(sel), swapLeadingEmoji);
   });

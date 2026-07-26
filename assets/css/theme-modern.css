@@ -145,4 +145,10 @@ body { background: #FAFBFF; }
 .card__icon.card__icon--accent { color: var(--azeler-red-ink); }
 /* Icônes du bloc « Voir aussi » et des chips du hero suivent leur couleur locale */
 .az-related__ico { color: var(--azeler-blue); }
-.hero-chip .az-ico { vertical-align: -0.12em; margin-right: 2px; }
+/* Icône en tête d'un titre/texte inline : un petit espace avant le mot */
+.hero-chip .az-ico,
+.pole-block__title .az-ico,
+.urgence h3 .az-ico,
+.conseil-box strong .az-ico,
+.az-related__title .az-ico,
+.az-footer__security .az-ico { margin-right: .38em; }
