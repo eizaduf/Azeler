@@ -1,1 +1,4 @@
 .DS_Store
+
+# Worktrees & config locale Claude
+.claude/

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ Aide maintenant — AZELER</title>
+  <meta name="description" content="Besoin d'aide tout de suite : numéros d'urgence gratuits et tri rapide vers la bonne solution (sans-toit ce soir, danger/violences, détresse psy, faim).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/pole.css">
+  <style>
+    /* Formulaire de contact rapide (page Aide maintenant) */
+    .qf-card { max-width: 760px; margin: 0 auto; }
+    .qf-lead { color: var(--azeler-gray); margin: 4px 0 18px; }
+    .qf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .qf-row { grid-template-columns: 1fr; } }
+    .qf-field { margin-bottom: 16px; }
+    .qf-label { display: block; font-weight: 800; color: var(--azeler-ink); margin-bottom: 7px; }
+    .qf-input { width: 100%; padding: 11px 13px; border: 2px solid #e6e9f5; border-radius: 12px;
+      font-family: var(--font-body); font-size: 1rem; color: var(--azeler-ink); background: #fff; }
+    .qf-input:focus { outline: none; border-color: var(--azeler-blue); box-shadow: 0 0 0 4px rgba(81,112,255,.12); }
+    .qf-choices, .qf-ase { display: flex; flex-wrap: wrap; gap: 9px; }
+    .qf-choice { cursor: pointer; }
+    .qf-choice input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+    .qf-choice span { display: inline-block; padding: 8px 14px; border: 2px solid #e6e9f5; border-radius: 999px;
+      font-weight: 700; font-size: .92rem; transition: background .15s, border-color .15s, color .15s; }
+    .qf-choice input:checked + span { background: var(--azeler-blue-soft); border-color: var(--azeler-blue); color: var(--azeler-blue-dark); }
+    .qf-choice input:focus-visible + span { outline: 3px solid var(--azeler-blue); outline-offset: 2px; }
+    .qf-note { color: var(--azeler-gray); font-size: .85rem; margin: 10px 0 0; }
+    #qf-ok { display: none; }
+  </style>
+</head>
+<body data-base="../" data-page="aide-maintenant">
+  <header id="site-header"></header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"></div>
+      <h1>Aide maintenant 🆘</h1>
+      <p>Une urgence en cours&nbsp;? On agit tout de suite. Les démarches administratives viennent après.</p>
+    </div>
+  </section>
+
+  <!-- BANDEAU URGENCE -->
+  <section class="section" style="padding-bottom:12px">
+    <div class="container">
+      <div class="urgence">
+        <h3>🚨 En cas d'urgence, appelle tout de suite — c'est gratuit</h3>
+        <div class="urgence__grid">
+          <a class="urgence__item" href="tel:17" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">17</div><div class="urgence__lbl">Police / gendarmerie</div></a>
+          <a class="urgence__item" href="tel:112" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">112</div><div class="urgence__lbl">Urgence européenne</div></a>
+          <a class="urgence__item" href="tel:15" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">15</div><div class="urgence__lbl">Urgence médicale (SAMU)</div></a>
+          <a class="urgence__item" href="sms:114" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">114</div><div class="urgence__lbl">Urgence par SMS / tchat</div></a>
+          <a class="urgence__item" href="tel:115" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">115</div><div class="urgence__lbl">Sans hébergement ce soir</div></a>
+          <a class="urgence__item" href="tel:119" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">119</div><div class="urgence__lbl">Enfance en danger — 24h/24</div></a>
+          <a class="urgence__item" href="tel:3114" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">3114</div><div class="urgence__lbl">Souffrance, pensées suicidaires</div></a>
+          <a class="urgence__item" href="tel:116006" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">116 006</div><div class="urgence__lbl">Aide aux victimes</div></a>
+          <a class="urgence__item" href="tel:3919" style="color:#fff;text-decoration:none;display:block"><div class="urgence__num">3919</div><div class="urgence__lbl">Violences faites aux femmes</div></a>
+        </div>
+        <p style="margin:12px 0 0; font-size:.92rem; opacity:.95">Une urgence vitale, une violence en cours, un risque suicidaire ou une personne à la rue&nbsp;: on agit <strong>tout de suite</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE DE CONTACT RAPIDE -->
+  <section class="section" style="padding-top:16px; padding-bottom:16px">
+    <div class="container">
+      <div class="card qf-card">
+        <span class="badge">Réponse rapide</span>
+        <h2 class="mt-2">Pas une urgence vitale&nbsp;? Dis-nous ta situation</h2>
+        <p class="qf-lead">Laisse ton prénom et un moyen de te joindre&nbsp;: on te recontacte vite, sans jugement. C'est confidentiel.</p>
+        <form id="qf-form" novalidate>
+          <div class="qf-row">
+            <div class="qf-field"><label class="qf-label" for="qf-prenom">Prénom&nbsp;<span style="color:var(--azeler-red)">*</span></label>
+              <input class="qf-input" id="qf-prenom" name="prenom" type="text" autocomplete="given-name" required></div>
+            <div class="qf-field"><label class="qf-label" for="qf-nom">Nom</label>
+              <input class="qf-input" id="qf-nom" name="nom" type="text" autocomplete="family-name"></div>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label">Tu sors (ou tu es sorti·e) de l'ASE&nbsp;?</label>
+            <div class="qf-ase">
+              <label class="qf-choice"><input type="radio" name="ase" value="Oui"><span>Oui</span></label>
+              <label class="qf-choice"><input type="radio" name="ase" value="Non"><span>Non</span></label>
+              <label class="qf-choice"><input type="radio" name="ase" value="Je ne sais pas"><span>Je ne sais pas</span></label>
+            </div>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label">De quoi as-tu besoin&nbsp;? (coche ce qui te concerne)</label>
+            <div class="qf-choices">
+              <label class="qf-choice"><input type="checkbox" name="besoin" value="Logement"><span>🏠 Logement</span></label>
+              <label class="qf-choice"><input type="checkbox" name="besoin" value="Argent"><span>💶 Argent</span></label>
+              <label class="qf-choice"><input type="checkbox" name="besoin" value="Nourriture"><span>🍎 Nourriture</span></label>
+              <label class="qf-choice"><input type="checkbox" name="besoin" value="Violences / sécurité"><span>🛡️ Violences</span></label>
+              <label class="qf-choice"><input type="checkbox" name="besoin" value="Soutien psy"><span>💚 Soutien psy</span></label>
+              <label class="qf-choice"><input type="checkbox" name="besoin" value="Santé"><span>🩺 Santé</span></label>
+              <label class="qf-choice"><input type="checkbox" name="besoin" value="Autre"><span>💬 Autre</span></label>
+            </div>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="qf-contact">Pour te recontacter — tél ou e-mail&nbsp;<span style="color:var(--azeler-red)">*</span></label>
+            <input class="qf-input" id="qf-contact" name="contact" type="text" placeholder="06… ou ton@email" required>
+          </div>
+          <p id="qf-error" hidden style="color:var(--azeler-red-dark); font-weight:700; margin:0 0 12px">Indique au moins ton prénom et un moyen de te recontacter.</p>
+          <button class="btn btn--accent" type="submit">Envoyer ma demande →</button>
+          <p class="qf-note">Envoi simulé pour l'instant. En cas de danger immédiat, appelle un des numéros ci-dessus.</p>
+        </form>
+        <div id="qf-ok" style="background:var(--azeler-blue-soft); border-radius:var(--radius); padding:22px 24px; text-align:center">
+          <h3 class="mt-0">Merci, c'est envoyé 💙</h3>
+          <p class="mb-0" id="qf-ok-text"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRI RAPIDE -->
+  <section class="section" style="padding-top:12px">
+    <div class="container">
+      <div class="text-center" style="max-width:640px; margin:0 auto 24px">
+        <span class="badge">Tri rapide</span>
+        <h2 class="mt-2">De quoi as-tu besoin, là, maintenant&nbsp;?</h2>
+        <p class="lead">Choisis ta situation pour aller au bon endroit.</p>
+      </div>
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__icon">🏠</div>
+          <h3 class="card__title">Je n'ai pas où dormir ce soir</h3>
+          <p class="card__text">Appelle le <strong>115</strong> (gratuit, 24h/24). Explique bien ta situation. Aucune place&nbsp;? Rappelle régulièrement.</p>
+          <a class="btn btn--ghost" href="../se-loger/index.html">Solutions logement →</a>
+        </div>
+        <div class="card">
+          <div class="card__icon">🛡️</div>
+          <h3 class="card__title">Je suis en danger ou victime de violences</h3>
+          <p class="card__text">Danger immédiat&nbsp;: <strong>17</strong> ou <strong>112</strong> (SMS&nbsp;: <strong>114</strong>). Toute victime&nbsp;: <strong>116 006</strong>. Femmes&nbsp;: <strong>3919</strong>.</p>
+          <a class="btn btn--ghost" href="../droits/violences-sexuelles.html">Être protégé·e →</a>
+        </div>
+        <div class="card">
+          <div class="card__icon">💚</div>
+          <h3 class="card__title">Ça ne va pas du tout / idées noires</h3>
+          <p class="card__text">Appelle le <strong>3114</strong> (prévention du suicide, 24h/24). Tu peux en parler, c'est déjà avancer.</p>
+          <a class="btn btn--ghost" href="../sante/aide-psychologique.html">Soutien psy →</a>
+        </div>
+        <div class="card">
+          <div class="card__icon">🍎</div>
+          <h3 class="card__title">J'ai faim / je n'ai plus rien</h3>
+          <p class="card__text">Contacte le <strong>CCAS</strong> de ta commune ou cherche une distribution ouverte sur <strong>Soliguide</strong>.</p>
+          <a class="btn btn--ghost" href="../se-nourrir/index.html">Se nourrir →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIER POINT (repris de « Par où commencer ? ») -->
+  <section class="section section--soft">
+    <div class="container" style="max-width:860px">
+      <h2>Faire un premier point</h2>
+      <p class="lead">Quelques questions pour y voir clair sur ta situation&nbsp;:</p>
+      <ul>
+        <li>As-tu un endroit sûr pour dormir ce soir&nbsp;?</li>
+        <li>As-tu mangé aujourd'hui, et as-tu des produits d'hygiène&nbsp;?</li>
+        <li>Es-tu en danger, victime de violences, menacé·e ou suivi·e&nbsp;?</li>
+        <li>As-tu des idées suicidaires, une crise ou besoin de soins tout de suite&nbsp;?</li>
+        <li>As-tu une adresse, des papiers, une couverture maladie et un compte bancaire&nbsp;?</li>
+      </ul>
+
+      <h2 class="mt-3">Les portes d'entrée principales</h2>
+      <table class="fiche-table">
+        <thead><tr><th>Ton besoin</th><th>Premier interlocuteur</th></tr></thead>
+        <tbody>
+          <tr><td>Urgence sociale / rue</td><td>115, accueil de jour, CCAS, service social départemental</td></tr>
+          <tr><td>Démarches administratives</td><td>France Services, CCAS, travailleur social</td></tr>
+          <tr><td>Jeune de 16 à 25 ans</td><td>Mission Locale</td></tr>
+          <tr><td>Logement</td><td>115 en urgence ; SIAO via un travailleur social ; demande de logement social ; ADIL pour le droit</td></tr>
+          <tr><td>Aide alimentaire</td><td>CCAS ou travailleur social ; associations ; Soliguide pour trouver une distribution</td></tr>
+          <tr><td>Victime de violences</td><td>17/112 en danger ; 116 006 pour toute victime ; 3919 pour les femmes victimes de violences</td></tr>
+          <tr><td>Souffrance psychique</td><td>3114 en crise suicidaire ; médecin, CMP, Maison des adolescents, Mon soutien psy</td></tr>
+        </tbody>
+      </table>
+
+      <div class="conseil-box mt-3">
+        <strong>Astuce :</strong> note les appels, les noms des personnes, les numéros de dossier et les dates.
+        Garde une copie de tout. Tu peux te faire aider par un travailleur social — c'est confidentiel.
+      </div>
+
+      <div class="fiche-sources mt-3">
+        <strong>Sources officielles :</strong>
+        <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> ·
+        <a href="https://france-services.gouv.fr" target="_blank" rel="noopener">france-services.gouv.fr</a> ·
+        <a href="https://soliguide.fr" target="_blank" rel="noopener">soliguide.fr</a> ·
+        <a href="https://3114.fr" target="_blank" rel="noopener">3114.fr</a> ·
+        <a href="https://france-victimes.fr" target="_blank" rel="noopener">france-victimes.fr</a>
+        <p class="fiche-note mt-2 mb-0">Informations vérifiées le 23 juillet 2026. Les horaires, critères et disponibilités peuvent changer.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/layout.js"></script>
+  <script>
+    (function () {
+      var f = document.getElementById('qf-form'); if (!f) return;
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var prenom = f.prenom.value.trim(), contact = f.contact.value.trim();
+        var err = document.getElementById('qf-error');
+        if (!prenom || !contact) { err.hidden = false; (prenom ? f.contact : f.prenom).focus(); return; }
+        err.hidden = true;
+        var besoins = [].slice.call(f.querySelectorAll('input[name="besoin"]:checked')).map(function (c) { return c.value; });
+        var ok = document.getElementById('qf-ok'), okt = document.getElementById('qf-ok-text');
+        okt.textContent = 'Merci ' + prenom + '. ' + (besoins.length ? 'On a noté : ' + besoins.join(', ') + '. ' : '') + 'On te recontacte très vite sur ce que tu nous as laissé.';
+        f.style.display = 'none'; ok.style.display = 'block';
+        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    })();
+  </script>
+</body>
+</html>

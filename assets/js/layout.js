@@ -10,23 +10,26 @@
      5. le pied de page (4 colonnes + numéros d'urgence + mentions légales).
 
    -------------------------------------------------------------------------
-   ARBORESCENCE DU SITE
+   ARBORESCENCE DU SITE (refonte « par domaine de vie » — 7 pôles)
    -------------------------------------------------------------------------
    Accueil (index.html, data-page="accueil")
-   ├── Se lancer ............ se-lancer/index.html        data-page="se-lancer"
-   ├── Infos & fiches ....... fiches/index.html           data-page="fiches"
-   │     ├── orientation.html, logement.html, sante.html,
-   │     │   aide-alimentaire.html, aides-financieres.html,
-   │     │   aide-psychologique.html, aide-juridique.html,
-   │     │   violences-sexuelles.html, …  (fiches statiques)
-   │     └── fiche.html?f=SLUG  (fiches générées depuis data/fiches.js)
-   │   (l'ancienne rubrique infos-ase/ a FUSIONNÉ ici : infos-ase/index.html
-   │    n'est plus qu'une redirection vers fiches/index.html#droits-ase)
-   ├── Associations ......... associations/index.html     data-page="associations"
-   ├── Épiceries ............ epiceries/index.html         data-page="epiceries"
-   ├── Kit hygiène (CTA) .... kit-hygiene/index.html       data-page="kit-hygiene"
-   ├── FAQ (secondaire) ..... faq/index.html               data-page="faq"
-   └── Mentions légales ..... mentions.html                (à créer)
+   ⚡ Aide maintenant ....... aide-maintenant/index.html   data-page="aide-maintenant"
+   🏠 Se loger .............. se-loger/index.html          data-page="se-loger"
+   🔑 Droits de locataire ... droits-locataire/index.html  data-page="droits-locataire"
+   💶 Argent & démarches .... argent/index.html            data-page="argent"
+   🍎 Se nourrir ............ se-nourrir/index.html         data-page="se-nourrir"
+   💚 Santé & bien-être ..... sante/index.html             data-page="sante"
+   💼 Emploi & avenir ....... emploi/index.html            data-page="emploi"
+   ⚖️ Tes droits ............ droits/index.html            data-page="droits"
+   🧼 Kit d'hygiène (CTA) ... kit-hygiene/index.html        data-page="kit-hygiene"
+
+   Fiches thématiques (déplacées dans leur pôle, redirections aux anciennes URL) :
+     se-loger/*.html, droits-locataire/*.html, argent/*.html, se-nourrir/*.html,
+     sante/*.html, droits/*.html
+   Fiches « logement & droits » data-driven : fiches/fiche.html?f=SLUG (data/fiches.js)
+
+   Pied de page (transversal, hors nav principale) :
+     🤝 Associations · ❓ FAQ · ℹ️ À propos · ⚖️ Mentions légales
 
    Chaque page doit fournir :
      <body data-base="../" data-page="fiches">   (base = chemin vers la racine ;
@@ -53,58 +56,80 @@
   /* --------------------------------------------------------------------- */
   /* Registre des rubriques                                                */
   /* --------------------------------------------------------------------- */
-  // Rubriques affichées dans la navigation principale (dans l'ordre).
+  // Rubriques affichées dans la navigation principale (dans l'ordre) :
+  //   ⚡ Aide maintenant (accès permanent, en tête) · 7 pôles · CTA Kit d'hygiène.
   var NAV = [
-    { id: 'se-lancer',    href: 'se-lancer/index.html',    label: 'Se lancer' },
-    { id: 'fiches',       href: 'fiches/index.html',       label: 'Infos & fiches' },
-    { id: 'associations', href: 'associations/index.html', label: 'Associations' },
-    { id: 'epiceries',    href: 'epiceries/index.html',    label: 'Épiceries' },
-    { id: 'kit-hygiene',  href: 'kit-hygiene/index.html',  label: 'Kit hygiène', cta: true }
+    { id: 'aide-maintenant',   href: 'aide-maintenant/index.html',   label: '⚡ Aide maintenant', urgent: true },
+    { id: 'se-loger',          href: 'se-loger/index.html',          label: 'Se loger' },
+    { id: 'droits-locataire',  href: 'droits-locataire/index.html',  label: 'Droits locataire' },
+    { id: 'argent',            href: 'argent/index.html',            label: 'Argent' },
+    { id: 'se-nourrir',        href: 'se-nourrir/index.html',        label: 'Se nourrir' },
+    { id: 'sante',             href: 'sante/index.html',             label: 'Santé' },
+    { id: 'emploi',            href: 'emploi/index.html',            label: 'Emploi' },
+    { id: 'droits',            href: 'droits/index.html',            label: 'Droits & recours' },
+    { id: 'kit-hygiene',       href: 'kit-hygiene/index.html',       label: 'Kit d\'hygiène', cta: true }
   ];
 
   // Libellés + liens de TOUTES les entrées (nav + secondaires), pour le fil
   // d'Ariane, le bloc « Voir aussi » et le pied de page.
   var PAGES = {
-    'accueil':      { label: 'Accueil',              href: 'index.html',              ico: '🏠' },
-    'se-lancer':    { label: 'Se lancer',            href: 'se-lancer/index.html',    ico: '🚀' },
-    'fiches':       { label: 'Infos & fiches',       href: 'fiches/index.html',       ico: '📄' },
-    'associations': { label: 'Associations',         href: 'associations/index.html', ico: '🤝' },
-    'epiceries':    { label: 'Épiceries',            href: 'epiceries/index.html',    ico: '🛒' },
-    'kit-hygiene':  { label: 'Kit hygiène',          href: 'kit-hygiene/index.html',  ico: '🧼' },
-    'faq':          { label: 'Questions fréquentes', href: 'faq/index.html',          ico: '❓' }
+    'accueil':          { label: 'Accueil',                 href: 'index.html',                 ico: '🏠' },
+    'aide-maintenant':  { label: 'Aide maintenant',         href: 'aide-maintenant/index.html', ico: '🆘' },
+    'se-loger':         { label: 'Se loger',                href: 'se-loger/index.html',        ico: '🏠' },
+    'droits-locataire': { label: 'Mes droits de locataire', href: 'droits-locataire/index.html', ico: '🔑' },
+    'argent':           { label: 'Argent & démarches',      href: 'argent/index.html',          ico: '💶' },
+    'se-nourrir':       { label: 'Se nourrir',              href: 'se-nourrir/index.html',      ico: '🍎' },
+    'sante':            { label: 'Santé & bien-être',       href: 'sante/index.html',           ico: '💚' },
+    'emploi':           { label: 'Emploi & avenir',         href: 'emploi/index.html',          ico: '💼' },
+    'droits':           { label: 'Droits & recours',              href: 'droits/index.html',          ico: '⚖️' },
+    'kit-hygiene':      { label: 'Kit d\'hygiène',          href: 'kit-hygiene/index.html',     ico: '🧼' },
+    'associations':     { label: 'Associations',            href: 'associations/index.html',    ico: '🤝' },
+    'epiceries':        { label: 'Épiceries solidaires',    href: 'epiceries/index.html',       ico: '🛒' },
+    'faq':              { label: 'Questions fréquentes',    href: 'faq/index.html',             ico: '❓' },
+    'a-propos':         { label: 'À propos d\'AZELER',      href: 'a-propos/index.html',        ico: 'ℹ️' },
+    'contact':          { label: 'Nous contacter',          href: 'contact/index.html',         ico: '✉️' },
+    // Le moteur de fiches « logement & droits » vit désormais dans le pôle Se loger.
+    'fiches':           { label: 'Se loger',                href: 'se-loger/index.html',        ico: '🏠' }
   };
 
   /* --------------------------------------------------------------------- */
   /* Blocs « Voir aussi » — liens croisés entre pages liées                */
   /* Un élément est soit un id de rubrique (string), soit {label, href}.   */
   /* --------------------------------------------------------------------- */
+  // Liens croisés « Voir aussi », affichés sur la page d'accueil de chaque pôle.
+  // On câble par proximité de besoin (financer un logement ↔ argent, se nourrir ↔ argent…).
   var RELATED = {
-    'se-lancer':    ['fiches', 'associations', 'kit-hygiene'],
-    'fiches':       ['se-lancer', 'associations', 'epiceries'],
-    'associations': ['fiches', 'epiceries', 'se-lancer'],
-    'epiceries':    ['fiches', 'associations', 'kit-hygiene'],
-    'kit-hygiene':  ['epiceries', 'associations', 'se-lancer'],
-    'faq':          ['se-lancer', 'fiches', 'kit-hygiene']
+    'aide-maintenant':  ['se-loger', 'sante', 'droits', 'se-nourrir'],
+    'se-loger':         ['droits-locataire', 'argent', 'aide-maintenant', 'associations'],
+    'droits-locataire': ['se-loger', 'droits', 'argent', 'associations'],
+    'argent':           ['se-loger', 'se-nourrir', 'emploi', 'droits'],
+    'se-nourrir':       ['epiceries', 'argent', 'associations', 'aide-maintenant'],
+    'sante':            ['aide-maintenant', 'droits', 'associations', 'emploi'],
+    'emploi':           ['argent', 'se-loger', 'droits', 'associations'],
+    'droits':           ['droits-locataire', 'sante', 'aide-maintenant', 'associations'],
+    'associations':     ['se-loger', 'se-nourrir', 'droits', 'aide-maintenant'],
+    'epiceries':        ['se-nourrir', 'argent', 'associations', 'aide-maintenant'],
+    'kit-hygiene':      ['se-nourrir', 'associations', 'aide-maintenant'],
+    'faq':              ['a-propos', 'associations', 'aide-maintenant'],
+    'a-propos':         ['associations', 'droits', 'faq']
   };
 
-  // Par fiche statique (clé = nom de fichier sans .html). Ne cible que des
-  // rubriques ou des fiches statiques dont l'existence est confirmée.
+  // Par fiche data-driven (clé = slug de fiche.html?f=SLUG). Ne cible que des
+  // pôles ou des fiches dont l'existence est confirmée.
   var F = function (label, href) { return { label: label, href: href }; };
   var FICHE_RELATED = {
-    'logement':            ['associations', 'epiceries', F('Fiche : aides financières', 'fiches/aides-financieres.html')],
-    'aide-alimentaire':    ['epiceries', 'associations', F('Fiche : aides financières', 'fiches/aides-financieres.html')],
-    'aides-financieres':   [F('Fiche : logement', 'fiches/logement.html'), 'epiceries', 'se-lancer'],
-    'sante':               [F('Fiche : soutien psychologique', 'fiches/aide-psychologique.html'), 'associations', 'se-lancer'],
-    'aide-psychologique':  [F('Fiche : santé', 'fiches/sante.html'), 'associations', 'fiches'],
-    'violences-sexuelles': [F('Fiche : aide juridique', 'fiches/aide-juridique.html'), F('Fiche : soutien psychologique', 'fiches/aide-psychologique.html'), 'associations'],
-    'aide-juridique':      [F('Fiche : violences sexuelles', 'fiches/violences-sexuelles.html'), 'associations', 'fiches'],
-    'orientation':         ['se-lancer', 'fiches', 'associations'],
-    // Nouvelles fiches « logement & droits » : rattachées au logement.
-    'droits-locataire':    [F('Fiche : logement', 'fiches/logement.html'), 'associations', 'epiceries'],
-    'logement-indigne':    [F('Fiche : logement', 'fiches/logement.html'), 'associations', 'se-lancer'],
-    'impayes-expulsion':   [F('Fiche : logement', 'fiches/logement.html'), 'associations', F('Fiche : aides financières', 'fiches/aides-financieres.html')],
-    'accession-sociale':   [F('Fiche : logement', 'fiches/logement.html'), 'se-lancer', 'associations'],
-    'trouver-adil':        [F('Fiche : logement', 'fiches/logement.html'), F('Fiche : droits du locataire', 'fiches/droits-locataire.html'), 'associations']
+    'premiere-location':   ['se-loger', 'droits-locataire', 'argent'],
+    'bail-location':       ['droits-locataire', 'se-loger', 'argent'],
+    'depot-garantie':      ['droits-locataire', 'argent', 'se-loger'],
+    'etat-des-lieux':      ['droits-locataire', 'se-loger', 'argent'],
+    'visale-garant':       ['se-loger', 'argent', 'droits-locataire'],
+    'loca-pass':           ['se-loger', 'argent', 'droits-locataire'],
+    'apl-caf':             ['argent', 'se-loger', 'droits-locataire'],
+    'fsl':                 ['argent', 'se-loger', 'droits-locataire'],
+    'logement-social':     ['se-loger', 'argent', 'droits'],
+    'fjt-habitat-jeunes':  ['se-loger', 'emploi', 'argent'],
+    'colocation':          ['se-loger', 'droits-locataire', 'argent'],
+    'logement-jeunes-ase': ['se-loger', 'droits', 'argent']
   };
 
   /* --------------------------------------------------------------------- */
@@ -179,6 +204,21 @@
     ajs.setAttribute('data-anim', '');
     body.appendChild(ajs);
   }
+  // « Quitter vite » — sécurité du public : bouton + touche Échap, présents
+  // sur TOUTES les pages (feuille + script injectés ici, dégradation gracieuse).
+  if (head && !head.querySelector('link[data-quick-exit]')) {
+    var qcss = document.createElement('link');
+    qcss.rel = 'stylesheet';
+    qcss.href = base + 'assets/css/quick-exit.css';
+    qcss.setAttribute('data-quick-exit', '');
+    head.appendChild(qcss);
+  }
+  if (!document.querySelector('script[data-quick-exit]')) {
+    var qjs = document.createElement('script');
+    qjs.src = base + 'assets/js/quick-exit.js';
+    qjs.setAttribute('data-quick-exit', '');
+    body.appendChild(qjs);
+  }
 
   /* --------------------------------------------------------------------- */
   /* 2. EN-TÊTE                                                            */
@@ -187,7 +227,7 @@
   if (header) {
     var navLinks = NAV.map(function (l) {
       var cur = (l.id === current) ? ' aria-current="page"' : '';
-      var cls = l.cta ? ' class="az-nav__cta"' : '';
+      var cls = l.cta ? ' class="az-nav__cta"' : (l.urgent ? ' class="az-nav__urgent"' : '');
       return '<a href="' + base + l.href + '"' + cls + cur + '>' + esc(l.label) + '</a>';
     }).join('');
 
@@ -195,7 +235,7 @@
     header.innerHTML =
       '<div class="container az-header__inner">' +
         '<a class="az-brand" href="' + base + 'index.html" aria-label="AZELER — retour à l\'accueil">' +
-          '<img src="' + base + 'assets/img/logo-azeler.png" alt="AZELER — Votre asso, vos infos !">' +
+          '<img src="' + base + 'assets/img/logo-azeler.png?v=4" alt="AZELER — Votre asso, vos infos !">' +
         '</a>' +
         '<button class="az-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="az-mainnav">' +
           '<span class="az-burger__bars" aria-hidden="true"></span>' +
@@ -287,7 +327,9 @@
   var footerEl = document.getElementById('site-footer');
   var relatedItems = null;
   if (current === 'fiches' && !isIndex) {
-    relatedItems = FICHE_RELATED[slug] || RELATED['fiches'];
+    // Page de détail d'une fiche data-driven (fiche.html?f=SLUG).
+    var qSlug = new URLSearchParams(location.search).get('f');
+    relatedItems = FICHE_RELATED[qSlug] || FICHE_RELATED[slug] || RELATED['se-loger'];
   } else if (RELATED[current] && isIndex) {
     relatedItems = RELATED[current];
   }
@@ -316,9 +358,17 @@
   /* 5. PIED DE PAGE                                                       */
   /* --------------------------------------------------------------------- */
   if (footerEl) {
-    // Colonne « Le site » : accueil + les rubriques (nav + FAQ)
-    var siteOrder = ['accueil', 'se-lancer', 'fiches', 'associations', 'epiceries', 'kit-hygiene', 'faq'];
+    // Colonne « Le site » : accueil + aide + les 7 pôles + CTA
+    var siteOrder = ['accueil', 'aide-maintenant', 'se-loger', 'droits-locataire',
+      'argent', 'se-nourrir', 'sante', 'emploi', 'droits', 'kit-hygiene'];
     var siteLinks = siteOrder.map(function (id) {
+      var p = PAGES[id];
+      return '<li><a href="' + base + p.href + '">' + esc(p.label) + '</a></li>';
+    }).join('');
+
+    // Colonne secondaire : rubriques transversales reléguées au pied de page.
+    var secondaryOrder = ['associations', 'epiceries', 'faq', 'a-propos', 'contact'];
+    var secondaryLinks = secondaryOrder.map(function (id) {
       var p = PAGES[id];
       return '<li><a href="' + base + p.href + '">' + esc(p.label) + '</a></li>';
     }).join('');
@@ -345,7 +395,7 @@
           // Colonne 1 : marque + tagline + mission
           '<div class="az-footer__brand">' +
             '<a href="' + base + 'index.html" aria-label="AZELER — accueil">' +
-              '<img src="' + base + 'assets/img/logo-azeler.png" alt="AZELER">' +
+              '<img src="' + base + 'assets/img/logo-azeler.png?v=4" alt="AZELER">' +
             '</a>' +
             '<p class="az-footer__tagline">« Votre asso, vos infos&nbsp;! »</p>' +
             '<p class="az-footer__mission">Toutes tes infos et tes contacts utiles au même endroit, ' +
@@ -364,10 +414,11 @@
             '<ul class="az-footer__urgence">' + urgHtml + '</ul>' +
           '</div>' +
 
-          // Colonne 4 : Partenaire + copyright
+          // Colonne 4 : Plus + partenaire + copyright
           '<div>' +
-            '<h3>Notre réseau</h3>' +
-            '<p class="az-footer__partner">Partenaire&nbsp;: réseau <strong>ADEPAPE</strong><br>' +
+            '<h3>Plus d\'AZELER</h3>' +
+            '<ul class="az-footer__links">' + secondaryLinks + '</ul>' +
+            '<p class="az-footer__partner" style="margin-top:16px">Partenaire&nbsp;: réseau <strong>ADEPAPE</strong><br>' +
               '<span style="opacity:.85">Associations Départementales d\'Entraide des Personnes ' +
               'Accueillies en Protection de l\'Enfance.</span></p>' +
             '<p class="az-footer__copy">© 2026 AZELER</p>' +
@@ -424,12 +475,7 @@
       }
     }
   }
-  [
-    '.card__icon', '.hero-chip', '.az-related__ico',
-    '.az-related__title > span[aria-hidden="true"]',
-    '.urgence h3', '.conseil-box strong', '.az-footer__security',
-    '.pole-block__title'
-  ].forEach(function (sel) {
-    Array.prototype.forEach.call(document.querySelectorAll(sel), swapLeadingEmoji);
-  });
+  // Remplacement emoji→SVG DÉSACTIVÉ : on garde un style d'icônes cohérent
+  // (emojis partout), plutôt qu'un mélange emojis + pictos vectoriels.
+  void swapLeadingEmoji; // (fonction conservée si on veut réactiver un jour)
 })();

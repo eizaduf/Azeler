@@ -39,13 +39,22 @@ a.card:hover, .card:hover {
 .site-header.is-scrolled { box-shadow: 0 6px 20px rgba(28, 35, 64, .16); }
 
 /* --- Blobs du hero : ondulation douce (accueil) --- */
-@keyframes azFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(14px, -18px) scale(1.06); }
+@keyframes azBlobA {
+  0%   { transform: translate(0, 0) scale(1); }
+  30%  { transform: translate(40px, -30px) scale(1.06); }
+  60%  { transform: translate(-24px, -46px) scale(1.10); }
+  100% { transform: translate(0, 0) scale(1); }
 }
-.hero-blob   { animation: azFloat 9s ease-in-out infinite; }
-.hero-blob--2 { animation-duration: 11s; animation-delay: -3s; }
-.hero-blob--3 { animation-duration: 7s;  animation-delay: -1.5s; }
+@keyframes azBlobB {
+  0%   { transform: translate(0, 0) scale(1); }
+  35%  { transform: translate(-36px, 28px) scale(1.07); }
+  65%  { transform: translate(28px, 42px) scale(1.04); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+/* Halos lents et amples (durées longues + désynchronisées = mouvement organique) */
+.hero-blob--1 { animation: azBlobA 14s ease-in-out infinite; }
+.hero-blob--2 { animation: azBlobB 18s ease-in-out infinite; }
+.hero-blob--3 { animation: azBlobA 12s ease-in-out infinite reverse; }
 
 /* --- Compteurs : évite le "saut" de largeur pendant l'animation --- */
 .stat__num { font-variant-numeric: tabular-nums; }

@@ -431,71 +431,12 @@ window.AZELER_FICHES = [
   },
 
   /* ------------------------------------------------------------------ */
-  {
-    slug: "droits-locataire",
-    titre: "Tes droits de locataire au quotidien",
-    theme: "Droits & litiges",
-    emoji: "⚖️",
-    resume: "Réparations, quittance, préavis, visite du propriétaire : ce que la loi t'autorise et ce qu'elle interdit.",
-    contenuHtml: `
-      <p class="lead">Une fois installé·e, tu as des droits que le propriétaire doit respecter. En connaître les grandes lignes t'évite de te laisser marcher dessus.</p>
-
-      <h2 class="mt-3">Ce à quoi tu as droit</h2>
-      <ul>
-        <li>Un logement <strong>décent</strong> et en bon état d'usage.</li>
-        <li>Une <strong>quittance de loyer gratuite</strong> sur simple demande (preuve que tu paies).</li>
-        <li>La <strong>tranquillité</strong> : le propriétaire ne peut pas entrer sans ton accord ni garder un double des clés pour venir quand il veut.</li>
-        <li>Un <strong>préavis</strong> respecté et un loyer qui n'augmente que dans les règles prévues au bail.</li>
-      </ul>
-
-      <h2 class="mt-3">Qui répare quoi ?</h2>
-      <table class="fiche-table">
-        <thead><tr><th>À ta charge (locataire)</th><th>À la charge du propriétaire</th></tr></thead>
-        <tbody>
-          <tr><td>Petit entretien courant, joints, ampoules, petites réparations d'usage</td><td>Grosses réparations, vétusté, toiture, chaudière, mise aux normes</td></tr>
-        </tbody>
-      </table>
-
-      <div class="conseil-box">
-        Un désaccord ? Écris d'abord au propriétaire en <strong>recommandé</strong>. Sans réponse, tu peux saisir gratuitement la <strong>commission départementale de conciliation</strong> ou demander conseil à l'ADIL.
-      </div>
-    `,
-    source: [
-      { nom: "Service-public.fr — Droits et obligations du locataire", url: "https://www.service-public.fr/particuliers/vosdroits/N341" },
-      { nom: "ANIL — Réparations et entretien", url: "https://www.anil.org/" }
-    ]
-  },
-
-  /* ------------------------------------------------------------------ */
-  {
-    slug: "logement-indecent",
-    titre: "Logement non décent, humide ou insalubre : que faire",
-    theme: "Droits & litiges",
-    emoji: "🚨",
-    resume: "Moisissures, chauffage HS, danger : tu n'as pas à subir. Les étapes pour faire réagir le propriétaire.",
-    contenuHtml: `
-      <p class="lead">Un logement doit être <strong>décent</strong> : sûr, sain, avec chauffage, eau, électricité et une surface minimale. Si ce n'est pas le cas, tu peux agir — sans arrêter de payer ton loyer pour autant.</p>
-
-      <h2 class="mt-3">Les étapes</h2>
-      <ol>
-        <li><strong>Signale par écrit</strong> au propriétaire (lettre recommandée) les problèmes et demande les travaux, avec une date.</li>
-        <li>Sans réaction, contacte la <strong>CAF</strong> si tu perçois une aide au logement (elle peut intervenir), et l'<strong>ADIL</strong> pour être conseillé·e.</li>
-        <li>En cas de risque pour la santé ou la sécurité (installation dangereuse, plomb, effondrement), alerte le <strong>service d'hygiène de la mairie</strong> ou l'<strong>ARS</strong>.</li>
-      </ol>
-
-      <div class="danger-box">
-        <strong>Ne cesse pas de payer ton loyer</strong> de ta propre initiative : tu te mettrais en tort. Passe par les voies officielles ou par un juge, qui peut décider d'une baisse ou d'une consignation.
-      </div>
-
-      <div class="conseil-box">
-        Danger immédiat (fuite de gaz, effondrement, absence de chauffage en plein hiver) ? Mets-toi en sécurité et appelle les secours ou la mairie sans attendre.
-      </div>
-    `,
-    source: [
-      { nom: "Service-public.fr — Logement décent", url: "https://www.service-public.fr/particuliers/vosdroits/F2042" },
-      { nom: "ANIL — Logement indigne et non décent", url: "https://www.anil.org/" }
-    ]
-  },
+  /* NOTE : les fiches « droits-locataire » et « logement-indecent » ont été
+     FUSIONNÉES avec les fiches statiques plus détaillées du pôle « Mes droits
+     de locataire » (droits-locataire/droits-locataire.html et
+     droits-locataire/logement-indigne.html). Les anciens liens
+     fiche.html?f=droits-locataire et ?f=logement-indecent sont redirigés vers
+     ces fiches par fiches/page.js (voir la table FICHE_MOVED). */
 
   /* ------------------------------------------------------------------ */
   {

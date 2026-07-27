@@ -129,9 +129,17 @@
   /* ======================================================================
      2) PAGE DE DÉTAIL (fiche.html)
      ====================================================================== */
+  // Fiches fusionnées : anciens slugs data-driven → nouvelle fiche statique.
+  // Préserve les liens partagés fiche.html?f=SLUG après la refonte.
+  var FICHE_MOVED = {
+    "droits-locataire":  "../droits-locataire/droits-locataire.html",
+    "logement-indecent": "../droits-locataire/logement-indigne.html"
+  };
+
   function initDetail(detail) {
     var params = new URLSearchParams(window.location.search);
     var slug = params.get("f");
+    if (FICHE_MOVED[slug]) { window.location.replace(FICHE_MOVED[slug]); return; }
     var fiche = DATA.filter(function (f) { return f.slug === slug; })[0];
 
     var titleEl = document.getElementById("fx-title");

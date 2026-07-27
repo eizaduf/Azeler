@@ -103,11 +103,19 @@ h2 { font-weight: 700; }
    ------------------------------------------------------------------------- */
 body { background: #FAFBFF; }
 
-/* Logo de l'en-tête : lui garantir de la place (les jambages du logo Chewy
-   étaient rognés dans un en-tête trop ajusté) + jamais de rognage. */
+/* Logo de l'en-tête : réduit et jamais rogné (les jambages du logo Chewy
+   débordaient dans un en-tête trop ajusté). */
 .az-header, .site-header { overflow: visible; }
-.az-header__inner { min-height: 74px; }
-.az-brand img, .logo-img { height: 40px; }
+.az-header__inner { min-height: 68px; align-items: center; }
+.az-brand img, .logo-img { height: 42px; }
+
+/* Navigation sur UNE seule ligne en desktop : on compacte taille + espacement
+   pour faire tenir ⚡ Aide + 7 pôles + CTA sans passer à la ligne. */
+@media (min-width: 861px) {
+  .az-nav { flex-wrap: nowrap; gap: 2px; }
+  .az-nav a { font-size: .82rem; padding: 8px 9px; white-space: nowrap; }
+  .az-nav a.az-nav__cta { padding: 8px 13px; }
+}
 
 /* -------------------------------------------------------------------------
    5. FINITIONS — ombres en couches, rayons harmonisés, relief des boutons
