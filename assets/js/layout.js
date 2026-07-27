@@ -235,7 +235,7 @@
     header.innerHTML =
       '<div class="container az-header__inner">' +
         '<a class="az-brand" href="' + base + 'index.html" aria-label="AZELER — retour à l\'accueil">' +
-          '<img src="' + base + 'assets/img/logo-azeler.png?v=4" alt="AZELER — Votre asso, vos infos !">' +
+          '<img src="' + base + 'assets/img/logo-azeler.png?v=5" alt="AZELER — Votre asso, vos infos !">' +
         '</a>' +
         '<button class="az-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="az-mainnav">' +
           '<span class="az-burger__bars" aria-hidden="true"></span>' +
@@ -395,7 +395,7 @@
           // Colonne 1 : marque + tagline + mission
           '<div class="az-footer__brand">' +
             '<a href="' + base + 'index.html" aria-label="AZELER — accueil">' +
-              '<img src="' + base + 'assets/img/logo-azeler.png?v=4" alt="AZELER">' +
+              '<img src="' + base + 'assets/img/logo-azeler.png?v=5" alt="AZELER">' +
             '</a>' +
             '<p class="az-footer__tagline">« Votre asso, vos infos&nbsp;! »</p>' +
             '<p class="az-footer__mission">Toutes tes infos et tes contacts utiles au même endroit, ' +
